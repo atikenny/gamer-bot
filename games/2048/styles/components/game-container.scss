@@ -1,0 +1,7 @@
+@import '../common/colors';
+@import '../common/variables';
+
+#game-container {
+    color: $brand-color;
+    padding: 2 * $gutter-size;
+}

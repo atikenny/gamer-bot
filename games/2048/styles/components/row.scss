@@ -1,0 +1,10 @@
+@import '../common/variables';
+
+.row-container {
+    overflow: hidden;
+    margin-bottom: $gutter-size;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
