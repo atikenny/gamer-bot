@@ -1,4 +1,5 @@
-import React from 'react';
+import React        from 'react';
+import { connect }  from 'react-redux';
 
 const Score = ({ score }) => (
     <div id="score-container">
@@ -6,4 +7,10 @@ const Score = ({ score }) => (
     </div>
 );
 
-export default Score;
+const mapState = ({ score }) => {
+    return {
+        score
+    };
+};
+
+export default connect(mapState)(Score);

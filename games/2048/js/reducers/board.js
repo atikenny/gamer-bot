@@ -7,6 +7,7 @@ import { move } from '../services/move-service';
 
 const initialState = {
     couldMove: false,
+    summed: 0,
     tiles: [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
@@ -46,6 +47,7 @@ const board = (state = initialState, action) => {
         case 'GET_NUMBER':
             return {
                 couldMove: false,
+                summed: 0,
                 tiles: addRandomNumber(state.tiles)
             };
         case 'START_GAME':
@@ -55,6 +57,7 @@ const board = (state = initialState, action) => {
 
             return {
                 couldMove: false,
+                summed: 0,
                 tiles: state.tiles
             };
         default:

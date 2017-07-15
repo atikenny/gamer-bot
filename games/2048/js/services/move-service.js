@@ -11,7 +11,7 @@ const rotateMatrix = (matrix) => {
 };
 
 export const move = (direction, board) => {
-    let columns, newTiles, couldMove = false;
+    let columns, newTiles, couldMove = false, summed = 0;
 
     if (direction === 'UP' || direction === 'DOWN') {
         columns = rotateMatrix(board.tiles);
@@ -40,6 +40,7 @@ export const move = (direction, board) => {
                         column[rowIndex + 1] = 0;
 
                         summedOnce = true;
+                        summed += 2 * number;
                         couldMove = true;
                     } else {
                         break;
@@ -61,6 +62,7 @@ export const move = (direction, board) => {
 
     return {
         couldMove,
+        summed,
         tiles: newTiles
     };
 };

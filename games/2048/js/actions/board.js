@@ -1,3 +1,5 @@
+import { addScore } from './score';
+
 const moveUp = () => ({ type: 'MOVE_UP' });
 
 const moveRight = () => ({ type: 'MOVE_RIGHT' });
@@ -32,6 +34,10 @@ export const moveAndGetNumber = (direction) => {
 
             if (board.couldMove) {
                 dispatch(getNumber());
+            }
+
+            if (board.summed !== 0) {
+                dispatch(addScore({ score: board.summed }));
             }
         }, 0);
     };
