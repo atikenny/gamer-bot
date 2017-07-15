@@ -21,6 +21,7 @@ export const move = (direction, board) => {
 
     columns.forEach(column => {
         let summedOnce = false;
+        const hasZeros = column.some(number => number === 0);
 
         if (direction === 'DOWN' || direction === 'RIGHT') {
             column.reverse();
@@ -34,7 +35,7 @@ export const move = (direction, board) => {
                         column[rowIndex + 1] = 0;
 
                         couldMove = true;
-                    } else if (column[rowIndex] === number && !summedOnce) {
+                    } else if (column[rowIndex] === number && (!summedOnce || !hasZeros)) {
                         column[rowIndex] = 2 * number;
                         column[rowIndex + 1] = 0;
 
