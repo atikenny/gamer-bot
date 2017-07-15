@@ -20,9 +20,19 @@ export const moveRight = () => {
     };
 };
 
-export const moveDown = () => {
+const moveDown = () => {
     return {
         type: 'MOVE_DOWN'
+    };
+};
+
+export const moveDownAndGetNumber = () => {
+    return dispatch => {
+        dispatch(moveDown());
+
+        setTimeout(() => {
+            dispatch(getNumber());
+        }, 0);
     };
 };
 

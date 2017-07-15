@@ -4,7 +4,8 @@ import {
 } from '../services/game-service';
 
 import {
-    moveUp
+    moveUp,
+    moveDown
 } from '../services/move-service';
 
 const initialState = [
@@ -33,6 +34,8 @@ const board = (state = initialState, action) => {
         case 'MOVE_RIGHT':
             return state;
         case 'MOVE_DOWN':
+            state = moveDown(state);
+
             return state;
         case 'MOVE_LEFT':
             return state;
