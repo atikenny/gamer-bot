@@ -1,9 +1,9 @@
 import { getCodeFromKeyboardEvent, KeyCodes } from './keyboard-service';
 import {
     moveUpAndGetNumber,
-    moveRight,
+    moveRightAndGetNumber,
     moveDownAndGetNumber,
-    moveLeft
+    moveLeftAndGetNumber
 } from '../actions/board';
 
 export const getKeypressHandler = (dispatch) => {
@@ -16,7 +16,7 @@ export const getKeypressHandler = (dispatch) => {
 
                 break;
             case KeyCodes.ArrowRight:
-                dispatch(moveRight());
+                dispatch(moveRightAndGetNumber());
 
                 break;
             case KeyCodes.ArrowDown:
@@ -24,7 +24,7 @@ export const getKeypressHandler = (dispatch) => {
 
                 break;
             case KeyCodes.ArrowLeft:
-                dispatch(moveLeft());
+                dispatch(moveLeftAndGetNumber());
 
                 break;
         }

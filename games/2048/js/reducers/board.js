@@ -3,10 +3,7 @@ import {
     getRandomEmptyCell
 } from '../services/game-service';
 
-import {
-    moveUp,
-    moveDown
-} from '../services/move-service';
+import { move } from '../services/move-service';
 
 const initialState = [
     [0, 0, 0, 0],
@@ -28,16 +25,20 @@ const addRandomNumber = (board) => {
 const board = (state = initialState, action) => {
     switch (action.type) {
         case 'MOVE_UP':
-            state = moveUp(state);
+            state = move('UP', state);
 
             return state;
         case 'MOVE_RIGHT':
+            state = move('RIGHT', state);
+
             return state;
         case 'MOVE_DOWN':
-            state = moveDown(state);
+            state = move('DOWN', state);
 
             return state;
         case 'MOVE_LEFT':
+            state = move('LEFT', state);
+
             return state;
         case 'GET_NUMBER':
             return addRandomNumber(state);

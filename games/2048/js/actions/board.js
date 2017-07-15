@@ -14,9 +14,19 @@ export const moveUpAndGetNumber = () => {
     };
 };
 
-export const moveRight = () => {
+const moveRight = () => {
     return {
         type: 'MOVE_RIGHT'
+    };
+};
+
+export const moveRightAndGetNumber = () => {
+    return dispatch => {
+        dispatch(moveRight());
+
+        setTimeout(() => {
+            dispatch(getNumber());
+        }, 0);
     };
 };
 
@@ -36,9 +46,19 @@ export const moveDownAndGetNumber = () => {
     };
 };
 
-export const moveLeft = () => {
+const moveLeft = () => {
     return {
         type: 'MOVE_LEFT'
+    };
+};
+
+export const moveLeftAndGetNumber = () => {
+    return dispatch => {
+        dispatch(moveLeft());
+
+        setTimeout(() => {
+            dispatch(getNumber());
+        }, 0);
     };
 };
 

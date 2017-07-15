@@ -11,12 +11,18 @@ const rotateMatrix = (matrix) => {
 };
 
 export const move = (direction, board) => {
-    const columns = rotateMatrix(board);
+    let columns, newBoard;
+
+    if (direction === 'UP' || direction === 'DOWN') {
+        columns = rotateMatrix(board);
+    } else {
+        columns = board.slice();
+    }
 
     columns.forEach(column => {
         let summedOnce = false;
 
-        if (direction === 'DOWN') {
+        if (direction === 'DOWN' || direction === 'RIGHT') {
             column.reverse();
         }
 
@@ -38,14 +44,16 @@ export const move = (direction, board) => {
             }
         });
 
-        if (direction === 'DOWN') {
+        if (direction === 'DOWN' || direction === 'RIGHT') {
             column.reverse();
         }
     });
 
-    return rotateMatrix(columns);
+    if (direction === 'UP' || direction === 'DOWN') {
+        newBoard = rotateMatrix(columns);
+    } else {
+        newBoard = columns.slice();
+    }
+
+    return newBoard;
 };
-
-export const moveUp = (board) => move('UP', board);
-
-export const moveDown = (board) => move('DOWN', board);
