@@ -4,12 +4,10 @@ import { connect }  from 'react-redux';
 import 'game2048/styles/components/score';
 
 const Score = ({ score }) => (
-    <div id="score-container">
-        <div className="score">
-            <h3>score</h3>
-            <div className="value">
-                {score}
-            </div>
+    <div className="score">
+        <h3>score</h3>
+        <div className="value">
+            {score}
         </div>
     </div>
 );

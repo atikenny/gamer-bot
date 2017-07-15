@@ -5,25 +5,29 @@ import {
 
 import { move } from '../services/move-service';
 
-const initialState = {
-    couldMove: false,
-    summed: 0,
-    tiles: [
+const getEmptyTiles = () => {
+    return [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
-    ]
+    ];
 };
 
-const addRandomNumber = (board) => {
-    const newBoard = board.slice();
+const initialState = {
+    couldMove: false,
+    summed: 0,
+    tiles: getEmptyTiles()
+};
+
+const addRandomNumber = (tiles) => {
+    const newTiles = tiles.slice();
     const randomNumber = getRandomNumber();
-    const randomEmptyCell = getRandomEmptyCell(newBoard);
+    const randomEmptyCell = getRandomEmptyCell(newTiles);
 
-    newBoard[randomEmptyCell.row][randomEmptyCell.column] = randomNumber;
+    newTiles[randomEmptyCell.row][randomEmptyCell.column] = randomNumber;
 
-    return newBoard;
+    return newTiles;
 };
 
 const board = (state = initialState, action) => {
@@ -51,14 +55,15 @@ const board = (state = initialState, action) => {
                 tiles: addRandomNumber(state.tiles)
             };
         case 'START_GAME':
-            state = initialState;
-            state.tiles = addRandomNumber(state.tiles);
-            state.tiles = addRandomNumber(state.tiles);
+            const tiles = getEmptyTiles();
+
+            addRandomNumber(tiles);
+            addRandomNumber(tiles);
 
             return {
                 couldMove: false,
                 summed: 0,
-                tiles: state.tiles
+                tiles
             };
         default:
             return state;

@@ -1,11 +1,6 @@
 @import '../common/colors';
 @import '../common/variables';
 
-#score-container {
-    margin-bottom: $gutter-size * 2;
-    text-align: right;
-}
-
 .score {
     padding: $gutter-size;
     display: inline-block;

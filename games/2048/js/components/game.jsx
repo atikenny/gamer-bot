@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Score from './score';
+import Actions from './actions';
 import Board from './board';
 
 const Game = () => (
     <div>
-        <Score />
+        <Actions />
         <Board />
     </div>
 );
