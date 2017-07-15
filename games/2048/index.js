@@ -10,8 +10,11 @@ import appReducers              from './js/reducers';
 import GameContainer            from './js/components/game-container';
 import Game                     from './js/components/game';
 import { getKeypressHandler }   from './js/services/board-service';
+import { startGame }            from './js/actions/board';
 
 let store = createStore(appReducers);
+
+store.dispatch(startGame());
 
 ReactDOM.render(
     <Provider store={store}>

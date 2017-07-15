@@ -21,3 +21,15 @@ export const moveLeft = () => {
         type: 'MOVE_LEFT'
     };
 };
+
+export const getNumber = () => {
+    return {
+        type: 'GET_NUMBER'
+    };
+};
+
+export const startGame = () => {
+    return {
+        type: 'START_GAME'
+    };
+};
