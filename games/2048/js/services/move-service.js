@@ -10,22 +10,15 @@ const rotateMatrix = (matrix) => {
     });
 };
 
-const array = [
-    [2, 0, 0, 0],
-    [0, 0, 0, 0],
-    [2, 0, 0, 0],
-    [4, 0, 0, 0]
-];
-
-const columns = [
-    [2, 0, 2, 4]
-];
-
-export const moveUp = (board) => {
+export const move = (direction, board) => {
     const columns = rotateMatrix(board);
 
     columns.forEach(column => {
         let summedOnce = false;
+
+        if (direction === 'DOWN') {
+            column.reverse();
+        }
 
         column.forEach((number, rowIndex) => {
             if (number !== 0) {
@@ -44,37 +37,15 @@ export const moveUp = (board) => {
                 }
             }
         });
+
+        if (direction === 'DOWN') {
+            column.reverse();
+        }
     });
 
     return rotateMatrix(columns);
 };
 
-export const moveDown = (board) => {
-    const columns = rotateMatrix(board);
+export const moveUp = (board) => move('UP', board);
 
-    columns.forEach(column => {
-        let summedOnce = false;
-
-        column.reverse().forEach((number, rowIndex) => {
-            if (number !== 0) {
-                while (--rowIndex >= 0) {
-                    if (column[rowIndex] === 0) {
-                        column[rowIndex] = number;
-                        column[rowIndex + 1] = 0;
-                    } else if (column[rowIndex] === number && !summedOnce) {
-                        column[rowIndex] = 2 * number;
-                        column[rowIndex + 1] = 0;
-
-                        summedOnce = true;
-                    } else {
-                        break;
-                    }
-                }
-            }
-        });
-
-        column.reverse();
-    });
-
-    return rotateMatrix(columns);
-};
+export const moveDown = (board) => move('DOWN', board);
