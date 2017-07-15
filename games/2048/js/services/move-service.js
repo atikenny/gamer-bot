@@ -18,6 +18,8 @@ export const moveUp = (board) => {
                     } else if (column[rowIndex] === number) {
                         column[rowIndex] = 2 * number;
                         column[rowIndex + 1] = 0;
+                    } else {
+                        break;
                     }
                 }
             }

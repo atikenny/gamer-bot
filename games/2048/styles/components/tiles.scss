@@ -18,6 +18,29 @@
         &.tile-4 {
             background-color: $tile-4-color;
         }
+
+        &.tile-8,
+        &.tile-16,
+        &.tile-32,
+        &.tile-64 {
+            color: $tile-light-color;
+        }
+
+        &.tile-8 {
+            background-color: $tile-8-color;
+        }
+
+        &.tile-16 {
+            background-color: $tile-16-color;
+        }
+
+        &.tile-32 {
+            background-color: $tile-32-color;
+        }
+
+        &.tile-64 {
+            background-color: $tile-64-color;
+        }
     }
 
     .row-1 {

@@ -1,6 +1,16 @@
-export const moveUp = () => {
+const moveUp = () => {
     return {
         type: 'MOVE_UP'
+    };
+};
+
+export const moveUpAndGetNumber = () => {
+    return dispatch => {
+        dispatch(moveUp());
+
+        setTimeout(() => {
+            dispatch(getNumber());
+        }, 0);
     };
 };
 

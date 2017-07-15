@@ -15,12 +15,13 @@ const initialState = [
 ];
 
 const addRandomNumber = (board) => {
+    const newBoard = board.slice();
     const randomNumber = getRandomNumber();
-    const randomEmptyCell = getRandomEmptyCell(board);
+    const randomEmptyCell = getRandomEmptyCell(newBoard);
 
-    board[randomEmptyCell.row][randomEmptyCell.column] = randomNumber;
+    newBoard[randomEmptyCell.row][randomEmptyCell.column] = randomNumber;
 
-    return board;
+    return newBoard;
 };
 
 const board = (state = initialState, action) => {
@@ -36,9 +37,7 @@ const board = (state = initialState, action) => {
         case 'MOVE_LEFT':
             return state;
         case 'GET_NUMBER':
-            state = addRandomNumber(state);
-
-            return state;
+            return addRandomNumber(state);
         case 'START_GAME':
             state = initialState;
             state = addRandomNumber(state);

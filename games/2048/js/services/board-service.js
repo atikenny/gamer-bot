@@ -1,6 +1,6 @@
 import { getCodeFromKeyboardEvent, KeyCodes } from './keyboard-service';
 import {
-    moveUp,
+    moveUpAndGetNumber,
     moveRight,
     moveDown,
     moveLeft
@@ -12,7 +12,7 @@ export const getKeypressHandler = (dispatch) => {
 
         switch (keyCode) {
             case KeyCodes.ArrowUp:
-                dispatch(moveUp());
+                dispatch(moveUpAndGetNumber());
 
                 break;
             case KeyCodes.ArrowRight:

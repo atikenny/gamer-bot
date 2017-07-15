@@ -1,7 +1,11 @@
 import React                    from 'react';
 import ReactDOM                 from 'react-dom';
 import { Provider }             from 'react-redux';
-import { createStore }          from 'redux';
+import {
+    createStore,
+    applyMiddleware
+} from 'redux';
+import thunkMiddleware          from 'redux-thunk';
 
 import './styles/main';
 
@@ -12,7 +16,10 @@ import Game                     from './js/components/game';
 import { getKeypressHandler }   from './js/services/board-service';
 import { startGame }            from './js/actions/board';
 
-let store = createStore(appReducers);
+let store = createStore(
+    appReducers,
+    applyMiddleware(thunkMiddleware)
+);
 
 store.dispatch(startGame());
 
