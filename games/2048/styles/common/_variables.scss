@@ -2,3 +2,14 @@ $gutter-size: 12px;
 $border-radius: 4px;
 $cell-size: 100px;
 $board-size: (4 * $cell-size) + (3 * $gutter-size);
+
+// TILES
+$tile-font-size: 55px;
+
+$row-2-top: (1 * $cell-size) + (1 * $gutter-size);
+$row-3-top: (2 * $cell-size) + (2 * $gutter-size);
+$row-4-top: (3 * $cell-size) + (3 * $gutter-size);
+
+$column-2-left: (1 * $cell-size) + (1 * $gutter-size);
+$column-3-left: (2 * $cell-size) + (2 * $gutter-size);
+$column-4-left: (3 * $cell-size) + (3 * $gutter-size);

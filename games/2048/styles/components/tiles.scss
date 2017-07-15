@@ -1,0 +1,54 @@
+@import '../common/colors';
+@import '../common/variables';
+
+#tiles {
+    .tile {
+        position: absolute;
+        font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: $tile-font-size;
+        font-weight: bold;
+        line-height: $cell-size;
+        width: $cell-size;
+        height: $cell-size;
+        text-align: center;
+        background-color: $tile-color;
+        display: inline-block;
+        border-radius: $border-radius;
+
+        &.tile-4 {
+            background-color: $tile-4-color;
+        }
+    }
+
+    .row-1 {
+        top: 0;
+    }
+
+    .row-2 {
+        top: $row-2-top;
+    }
+
+    .row-3 {
+        top: $row-3-top;
+    }
+
+    .row-4 {
+        top: $row-4-top;
+    }
+
+    .column-1 {
+        left: 0;
+    }
+
+    .column-2 {
+        left: $column-2-left;
+    }
+
+    .column-3 {
+        left: $column-3-left;
+    }
+
+    .column-4 {
+        left: $column-4-left;
+    }
+}

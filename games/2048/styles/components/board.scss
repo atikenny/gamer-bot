@@ -1,11 +1,14 @@
 @import '../common/colors';
 @import '../common/variables';
 
-#board {
+#board-container {
     background-color: $brand-color;
     margin: 0 auto;
     width: $board-size;
     border-radius: $border-radius * 2;
     padding: $gutter-size;
-    position: relative;
+
+    .board {
+        position: relative;
+    }
 }

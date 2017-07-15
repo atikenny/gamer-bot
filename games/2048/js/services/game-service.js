@@ -1,9 +1,9 @@
-const getRandomDigit = () => Math.floor(Math.random() * 10);
+const getRandomPercent = () => Math.floor(Math.random() * 100);
 
 export const getRandomNumber = () => {
-    const randomDigit = getRandomDigit();
+    const randomPercent = getRandomPercent();
 
-    if (randomDigit >= 7) {
+    if (randomPercent <= 85) {
         return 2;
     } else {
         return 4;
