@@ -21,34 +21,74 @@
     }
 
     .row-1 {
-        top: 0;
+        &.column-1 {
+            transform: translate(0, 0);
+        }
+
+        &.column-2 {
+            transform: translate(0, $column-2-left);
+        }
+
+        &.column-3 {
+            transform: translate(0, $column-3-left);
+        }
+
+        &.column-4 {
+            transform: translate(0, $column-4-left);
+        }
     }
 
     .row-2 {
-        top: $row-2-top;
+        &.column-1 {
+            transform: translate($row-2-top, 0);
+        }
+
+        &.column-2 {
+            transform: translate($row-2-top, $column-2-left);
+        }
+
+        &.column-3 {
+            transform: translate($row-2-top, $column-3-left);
+        }
+
+        &.column-4 {
+            transform: translate($row-2-top, $column-4-left);
+        }
     }
 
     .row-3 {
-        top: $row-3-top;
+        &.column-1 {
+            transform: translate($row-3-top, 0);
+        }
+
+        &.column-2 {
+            transform: translate($row-3-top, $column-2-left);
+        }
+
+        &.column-3 {
+            transform: translate($row-3-top, $column-3-left);
+        }
+
+        &.column-4 {
+            transform: translate($row-3-top, $column-4-left);
+        }
     }
 
     .row-4 {
-        top: $row-4-top;
-    }
+        &.column-1 {
+            transform: translate($row-4-top, 0);
+        }
 
-    .column-1 {
-        left: 0;
-    }
+        &.column-2 {
+            transform: translate($row-4-top, $column-2-left);
+        }
 
-    .column-2 {
-        left: $column-2-left;
-    }
+        &.column-3 {
+            transform: translate($row-4-top, $column-3-left);
+        }
 
-    .column-3 {
-        left: $column-3-left;
-    }
-
-    .column-4 {
-        left: $column-4-left;
+        &.column-4 {
+            transform: translate($row-4-top, $column-4-left);
+        }
     }
 }
