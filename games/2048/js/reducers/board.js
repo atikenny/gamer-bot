@@ -5,12 +5,15 @@ import {
 
 import { move } from '../services/move-service';
 
-const initialState = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-];
+const initialState = {
+    couldMove: false,
+    tiles: [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ]
+};
 
 const addRandomNumber = (board) => {
     const newBoard = board.slice();
@@ -41,13 +44,19 @@ const board = (state = initialState, action) => {
 
             return state;
         case 'GET_NUMBER':
-            return addRandomNumber(state);
+            return {
+                couldMove: false,
+                tiles: addRandomNumber(state.tiles)
+            };
         case 'START_GAME':
             state = initialState;
-            state = addRandomNumber(state);
-            state = addRandomNumber(state);
+            state.tiles = addRandomNumber(state.tiles);
+            state.tiles = addRandomNumber(state.tiles);
 
-            return state;
+            return {
+                couldMove: false,
+                tiles: state.tiles
+            };
         default:
             return state;
     }

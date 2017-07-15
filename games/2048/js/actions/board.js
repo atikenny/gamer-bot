@@ -1,63 +1,38 @@
-const moveUp = () => {
-    return {
-        type: 'MOVE_UP'
-    };
-};
+const moveUp = () => ({ type: 'MOVE_UP' });
 
-export const moveUpAndGetNumber = () => {
-    return dispatch => {
-        dispatch(moveUp());
+const moveRight = () => ({ type: 'MOVE_RIGHT' });
 
-        setTimeout(() => {
-            dispatch(getNumber());
-        }, 0);
-    };
-};
+const moveDown = () => ({ type: 'MOVE_DOWN' });
 
-const moveRight = () => {
-    return {
-        type: 'MOVE_RIGHT'
-    };
-};
+const moveLeft = () => ({ type: 'MOVE_LEFT' });
 
-export const moveRightAndGetNumber = () => {
-    return dispatch => {
-        dispatch(moveRight());
+export const moveAndGetNumber = (direction) => {
+    return (dispatch, getState) => {
+        switch (direction) {
+            case 'UP':
+                dispatch(moveUp());
 
-        setTimeout(() => {
-            dispatch(getNumber());
-        }, 0);
-    };
-};
+                break;
+            case 'RIGHT':
+                dispatch(moveRight());
 
-const moveDown = () => {
-    return {
-        type: 'MOVE_DOWN'
-    };
-};
+                break;
+            case 'DOWN':
+                dispatch(moveDown());
 
-export const moveDownAndGetNumber = () => {
-    return dispatch => {
-        dispatch(moveDown());
+                break;
+            case 'LEFT':
+                dispatch(moveLeft());
+
+                break;
+        }
 
         setTimeout(() => {
-            dispatch(getNumber());
-        }, 0);
-    };
-};
+            const { board } = getState();
 
-const moveLeft = () => {
-    return {
-        type: 'MOVE_LEFT'
-    };
-};
-
-export const moveLeftAndGetNumber = () => {
-    return dispatch => {
-        dispatch(moveLeft());
-
-        setTimeout(() => {
-            dispatch(getNumber());
+            if (board.couldMove) {
+                dispatch(getNumber());
+            }
         }, 0);
     };
 };

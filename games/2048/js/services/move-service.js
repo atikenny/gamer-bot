@@ -11,12 +11,12 @@ const rotateMatrix = (matrix) => {
 };
 
 export const move = (direction, board) => {
-    let columns, newBoard;
+    let columns, newTiles, couldMove = false;
 
     if (direction === 'UP' || direction === 'DOWN') {
-        columns = rotateMatrix(board);
+        columns = rotateMatrix(board.tiles);
     } else {
-        columns = board.slice();
+        columns = board.tiles.slice();
     }
 
     columns.forEach(column => {
@@ -32,11 +32,14 @@ export const move = (direction, board) => {
                     if (column[rowIndex] === 0) {
                         column[rowIndex] = number;
                         column[rowIndex + 1] = 0;
+
+                        couldMove = true;
                     } else if (column[rowIndex] === number && !summedOnce) {
                         column[rowIndex] = 2 * number;
                         column[rowIndex + 1] = 0;
 
                         summedOnce = true;
+                        couldMove = true;
                     } else {
                         break;
                     }
@@ -50,10 +53,13 @@ export const move = (direction, board) => {
     });
 
     if (direction === 'UP' || direction === 'DOWN') {
-        newBoard = rotateMatrix(columns);
+        newTiles = rotateMatrix(columns);
     } else {
-        newBoard = columns.slice();
+        newTiles = columns.slice();
     }
 
-    return newBoard;
+    return {
+        couldMove,
+        tiles: newTiles
+    };
 };

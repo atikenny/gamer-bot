@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import 'game2048/styles/components/tiles';
 
-const Tiles = ({ board }) => (
+const Tiles = ({ tiles }) => (
     <div id="tiles">
-        {board.map((row, rowIndex) => (
+        {tiles.map((row, rowIndex) => (
             row.map((number, columnIndex) => {
                 const rowNumber = rowIndex + 1;
                 const columnNumber = columnIndex + 1;
@@ -33,7 +33,7 @@ const Tiles = ({ board }) => (
 
 const mapState = ({ board }) => {
     return {
-        board
+        tiles: board.tiles
     };
 };
 
