@@ -3,5 +3,6 @@
 
 #game-container {
     color: $brand-color;
-    padding: 2 * $gutter-size;
+    margin: (2 * $gutter-size) auto;
+    width: $board-size;
 }

@@ -1,7 +1,8 @@
 $gutter-size: 12px;
 $border-radius: 4px;
 $cell-size: 100px;
-$board-size: (4 * $cell-size) + (3 * $gutter-size);
+$board-size: (4 * $cell-size) + (5 * $gutter-size);
+$score-font-size: 32px;
 
 // TILES
 $tile-font-size: 55px;

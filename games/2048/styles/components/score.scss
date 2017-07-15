@@ -1,0 +1,21 @@
+@import '../common/colors';
+@import '../common/variables';
+
+#score-container {
+    margin-bottom: $gutter-size * 2;
+    text-align: right;
+}
+
+.score {
+    padding: $gutter-size;
+    display: inline-block;
+    background-color: $brand-color;
+    color: $light-text-color;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    border-radius: $border-radius * 2;
+    text-align: center;
+
+    .value {
+        font-size: $score-font-size;
+    }
+}
