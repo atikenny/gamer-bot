@@ -10,6 +10,16 @@ const rotateMatrix = (matrix) => {
     });
 };
 
+const getDistinctNumbers = (numbers) => {
+    return numbers.reduce((distinctNumbers, number) => {
+        if (distinctNumbers.indexOf(number) === -1) {
+            distinctNumbers.push(number);
+        }
+
+        return distinctNumbers;
+    }, []);
+};
+
 export const move = (direction, board) => {
     let columns, newTiles, couldMove = false, summed = 0;
 
@@ -21,7 +31,8 @@ export const move = (direction, board) => {
 
     columns.forEach(column => {
         let summedOnce = false;
-        const hasZeros = column.some(number => number === 0);
+        const distinctNumbers = getDistinctNumbers(column);
+        const canAddTwice = distinctNumbers.length === 1;
 
         if (direction === 'DOWN' || direction === 'RIGHT') {
             column.reverse();
@@ -35,7 +46,7 @@ export const move = (direction, board) => {
                         column[rowIndex + 1] = 0;
 
                         couldMove = true;
-                    } else if (column[rowIndex] === number && (!summedOnce || !hasZeros)) {
+                    } else if (column[rowIndex] === number && (!summedOnce || canAddTwice)) {
                         column[rowIndex] = 2 * number;
                         column[rowIndex + 1] = 0;
 
