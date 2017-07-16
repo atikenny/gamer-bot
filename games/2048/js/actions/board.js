@@ -29,7 +29,7 @@ export const moveAndGetNumber = (direction) => {
                 break;
         }
 
-        setTimeout(() => {
+        window.requestAnimationFrame(() => {
             const { board } = getState();
 
             if (board.couldMove) {
@@ -39,7 +39,7 @@ export const moveAndGetNumber = (direction) => {
             if (board.summed !== 0) {
                 dispatch(addScore({ score: board.summed }));
             }
-        }, 0);
+        });
     };
 };
 

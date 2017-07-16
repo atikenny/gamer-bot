@@ -33,4 +33,19 @@ ReactDOM.render(
 );
 
 const keypressHandler = getKeypressHandler(store.dispatch);
+let isKeypressHandlerAttached = true;
+
 document.addEventListener('keyup', keypressHandler);
+
+store.subscribe(() => {
+    const { board } = store.getState();
+
+    if (!board.notEnded) {
+        document.removeEventListener('keyup', keypressHandler);
+        isKeypressHandlerAttached = false;
+    } else if (board.notEnded) {
+        document.addEventListener('keyup', keypressHandler);
+        isKeypressHandlerAttached = true;
+    }
+});
+
