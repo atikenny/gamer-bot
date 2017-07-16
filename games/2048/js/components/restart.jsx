@@ -1,10 +1,12 @@
 import React            from 'react';
 import { connect }      from 'react-redux';
 
+import 'game2048/styles/components/restart';
+
 import { startGame }    from '../actions/board';
 
 const Restart = ({ startGame }) => (
-    <button onClick={startGame}>
+    <button className="button restart-button" onClick={startGame}>
         restart
     </button>
 );
