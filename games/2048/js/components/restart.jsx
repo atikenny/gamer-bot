@@ -3,18 +3,18 @@ import { connect }      from 'react-redux';
 
 import 'game2048/styles/components/restart';
 
-import { startGame }    from '../actions/board';
+import { resetGame }    from '../actions/board';
 
-const Restart = ({ startGame }) => (
-    <button className="button restart-button" onClick={startGame}>
+const Restart = ({ resetGame }) => (
+    <button className="button restart-button" onClick={resetGame}>
         restart
     </button>
 );
 
 const mapDispatch = (dispatch) => {
     return {
-        startGame: () => {
-            dispatch(startGame());
+        resetGame: () => {
+            dispatch(resetGame());
         }
     };
 };

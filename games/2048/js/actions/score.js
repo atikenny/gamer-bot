@@ -4,3 +4,9 @@ export const addScore = ({ score }) => {
         score
     };
 };
+
+export const resetScore = () => {
+    return {
+        type: 'RESET_SCORE'
+    };
+};

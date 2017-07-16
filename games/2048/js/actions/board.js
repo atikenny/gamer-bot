@@ -1,4 +1,4 @@
-import { addScore } from './score';
+import { addScore, resetScore } from './score';
 
 const moveUp = () => ({ type: 'MOVE_UP' });
 
@@ -49,8 +49,18 @@ export const getNumber = () => {
     };
 };
 
-export const startGame = () => {
+const startGame = () => {
     return {
         type: 'START_GAME'
+    };
+};
+
+export const resetGame = () => {
+    return dispatch => {
+        dispatch(startGame());
+
+        window.requestAnimationFrame(() => {
+            dispatch(resetScore());
+        });
     };
 };

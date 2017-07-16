@@ -14,14 +14,14 @@ import appReducers              from './js/reducers';
 import GameContainer            from './js/components/game-container';
 import Game                     from './js/components/game';
 import { getKeypressHandler }   from './js/services/board-service';
-import { startGame }            from './js/actions/board';
+import { resetGame }            from './js/actions/board';
 
 let store = createStore(
     appReducers,
     applyMiddleware(thunkMiddleware)
 );
 
-store.dispatch(startGame());
+store.dispatch(resetGame());
 
 ReactDOM.render(
     <Provider store={store}>
