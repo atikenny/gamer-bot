@@ -15,13 +15,22 @@ import GameContainer            from './js/components/game-container';
 import Game                     from './js/components/game';
 import { getKeypressHandler }   from './js/services/board-service';
 import { resetGame }            from './js/actions/board';
+import {
+    scheduleSaveState,
+    loadState
+} from './js/services/storage-service';
+
+const savedState = loadState();
 
 let store = createStore(
     appReducers,
+    savedState,
     applyMiddleware(thunkMiddleware)
 );
 
-store.dispatch(resetGame());
+if (!savedState) {
+    store.dispatch(resetGame());
+}
 
 ReactDOM.render(
     <Provider store={store}>
@@ -38,12 +47,14 @@ let isKeypressHandlerAttached = true;
 document.addEventListener('keyup', keypressHandler);
 
 store.subscribe(() => {
-    const { board } = store.getState();
+    const state = store.getState();
 
-    if (!board.notEnded) {
+    scheduleSaveState(state);
+
+    if (!state.board.notEnded) {
         document.removeEventListener('keyup', keypressHandler);
         isKeypressHandlerAttached = false;
-    } else if (board.notEnded) {
+    } else if (state.board.notEnded) {
         document.addEventListener('keyup', keypressHandler);
         isKeypressHandlerAttached = true;
     }
