@@ -106,4 +106,43 @@ describe('move method', () => {
             [0, 0, 0, 0]
         ]);
     });
+
+    test('sets notEnded flag to true when can move up', () => {
+        const tiles = [
+            [16, 2, 16, 2],
+            [8, 4, 8, 4],
+            [4, 8, 4, 8],
+            [2, 16, 2, 8]
+        ];
+
+        const newBoard = move('UP', { tiles });
+
+        expect(newBoard.notEnded).toBe(true);
+    });
+
+    test('sets notEnded flag to true when can move left', () => {
+        const tiles = [
+            [16, 2, 16, 2],
+            [8, 4, 8, 4],
+            [4, 8, 4, 8],
+            [2, 16, 2, 2]
+        ];
+
+        const newBoard = move('UP', { tiles });
+
+        expect(newBoard.notEnded).toBe(true);
+    });
+
+    test('sets notEnded flag to false', () => {
+        const tiles = [
+            [16, 2, 16, 2],
+            [8, 4, 8, 4],
+            [4, 8, 4, 8],
+            [2, 16, 2, 16]
+        ];
+
+        const newBoard = move('UP', { tiles });
+
+        expect(newBoard.notEnded).toBe(false);
+    });
 });

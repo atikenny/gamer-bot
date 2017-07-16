@@ -9,4 +9,9 @@
     .board {
         position: relative;
     }
+
+    &.ended {
+        opacity: .5;
+        pointer-events: none;
+    }
 }

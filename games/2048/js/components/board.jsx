@@ -1,13 +1,14 @@
-import React from 'react';
+import React        from 'react';
+import { connect }  from 'react-redux';
 
 import 'game2048/styles/components/board';
 
-import Row from './row';
-import Column from './column';
-import Tiles from './tiles';
+import Row          from './row';
+import Column       from './column';
+import Tiles        from './tiles';
 
-const Board = () => (
-    <div id="board-container">
+const Board = ({ notEnded }) => (
+    <div id="board-container" className={notEnded ? '' : 'ended'}>
         <div className="board">
             <Tiles />
             <Row>
@@ -38,4 +39,10 @@ const Board = () => (
     </div>
 );
 
-export default Board;
+const mapState = ({ board }) => {
+    return {
+        notEnded: board.notEnded
+    };
+};
+
+export default connect(mapState)(Board);

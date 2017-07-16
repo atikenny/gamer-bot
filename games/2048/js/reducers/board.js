@@ -17,6 +17,7 @@ const getEmptyTiles = () => {
 const initialState = {
     couldMove: false,
     summed: 0,
+    notEnded: true,
     tiles: getEmptyTiles()
 };
 
@@ -49,22 +50,18 @@ const board = (state = initialState, action) => {
 
             return state;
         case 'GET_NUMBER':
-            return {
-                couldMove: false,
-                summed: 0,
+            return Object.assign({}, state, {
                 tiles: addRandomNumber(state.tiles)
-            };
+            });
         case 'START_GAME':
             const tiles = getEmptyTiles();
 
             addRandomNumber(tiles);
             addRandomNumber(tiles);
 
-            return {
-                couldMove: false,
-                summed: 0,
+            return Object.assign({}, initialState, {
                 tiles
-            };
+            });
         default:
             return state;
     }

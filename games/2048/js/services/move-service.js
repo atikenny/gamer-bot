@@ -1,3 +1,10 @@
+const DIRECTIONS = {
+    UP: 'UP',
+    RIGHT: 'RIGHT',
+    DOWN: 'DOWN',
+    LEFT: 'LEFT'
+};
+
 const rotateMatrix = (matrix) => {
     return matrix.map((originalRow, index) => {
         let newRow = [];
@@ -41,10 +48,29 @@ const checkCanAddTwice = (numbers) => {
     return hasOnlyOneDistinctNumber || hasTwoPairOfNumbers;
 };
 
-export const move = (direction, board) => {
+const hasNoZeros = (tiles) => {
+    return !tiles.some(row => row.some(number => number === 0));
+};
+
+const couldMoveOtherDirection = (board, directionAlreadyTried) => {
+    return Object.keys(DIRECTIONS).some(directionKey => {
+        const direction = DIRECTIONS[directionKey];
+        let canMove = false;
+
+        if (direction !== directionAlreadyTried) {
+            const { couldMove } = move(direction, { tiles: board.tiles.slice() }, true);
+
+            canMove = couldMove;
+        }
+
+        return canMove;
+    });
+};
+
+export const move = (direction, board, simulate) => {
     let columns, newTiles, couldMove = false, summed = 0;
 
-    if (direction === 'UP' || direction === 'DOWN') {
+    if (direction === DIRECTIONS.UP || direction === DIRECTIONS.DOWN) {
         columns = rotateMatrix(board.tiles);
     } else {
         columns = board.tiles.slice();
@@ -56,7 +82,7 @@ export const move = (direction, board) => {
         const distinctNumbers = getDistinctNumbers(column);
         const canAddTwice = checkCanAddTwice(column);
 
-        if (direction === 'DOWN' || direction === 'RIGHT') {
+        if (direction === DIRECTIONS.DOWN || direction === DIRECTIONS.RIGHT) {
             column.reverse();
         }
 
@@ -85,12 +111,12 @@ export const move = (direction, board) => {
             }
         });
 
-        if (direction === 'DOWN' || direction === 'RIGHT') {
+        if (direction === DIRECTIONS.DOWN || direction === DIRECTIONS.RIGHT) {
             column.reverse();
         }
     });
 
-    if (direction === 'UP' || direction === 'DOWN') {
+    if (direction === DIRECTIONS.UP || direction === DIRECTIONS.DOWN) {
         newTiles = rotateMatrix(columns);
     } else {
         newTiles = columns.slice();
@@ -99,6 +125,7 @@ export const move = (direction, board) => {
     return {
         couldMove,
         summed,
+        notEnded: couldMove || (!simulate && couldMoveOtherDirection(board, direction)),
         tiles: newTiles
     };
 };

@@ -54,3 +54,9 @@ export const startGame = () => {
         type: 'START_GAME'
     };
 };
+
+export const endGame = () => {
+    return {
+        type: 'END_GAME'
+    };
+};
