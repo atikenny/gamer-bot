@@ -1,3 +1,5 @@
+import { delayedCallback } from './delay-service';
+
 const STORAGE_KEYS = {
     STATE: 'game2048.state'
 };
@@ -7,15 +9,9 @@ const saveState = (state) => {
 };
 
 export const scheduleSaveState = (state) => {
-    if (requestIdleCallback in window) {
-        window.requestIdleCallback(() => {
-            saveState(state);
-        });
-    } else {
-        setTimeout(() => {
-            saveState(state);
-        }, 1000);
-    }
+    delayedCallback(() => {
+        saveState(state);
+    });
 };
 
 export const loadState = () => {

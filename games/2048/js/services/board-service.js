@@ -1,5 +1,11 @@
-import { getCodeFromKeyboardEvent, KeyCodes } from './keyboard-service';
-import { moveAndGetNumber } from '../actions/board';
+import {
+    getCodeFromKeyboardEvent,
+    KeyCodes
+} from './keyboard-service';
+import {
+    moveAndGetNumber,
+    resetGame
+} from '../actions/board';
 
 export const getKeypressHandler = (dispatch) => {
     return (event) => {
@@ -20,6 +26,10 @@ export const getKeypressHandler = (dispatch) => {
                 break;
             case KeyCodes.ArrowLeft:
                 dispatch(moveAndGetNumber('LEFT'));
+
+                break;
+            case KeyCodes.KeyR:
+                dispatch(resetGame());
 
                 break;
         }
