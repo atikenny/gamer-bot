@@ -2,7 +2,10 @@ const path = require('path');
 
 const paths = {
     output: path.resolve(__dirname, 'dist'),
-    game2048: path.resolve(__dirname, 'games/2048')
+    game2048: path.resolve(__dirname, 'games/2048'),
+    bots: {
+        adam: path.resolve(__dirname, 'bots/adam')
+    }
 };
 
 module.exports = {
@@ -42,7 +45,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            game2048: paths.game2048
+            game2048: paths.game2048,
+            botAdam: paths.bots.adam
         },
         extensions: ['.html', '.jsx', '.js', '.scss']
     },

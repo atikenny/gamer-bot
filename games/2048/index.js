@@ -20,6 +20,9 @@ import {
     loadState
 } from './js/services/storage-service';
 
+// BOT
+import { play } from 'botAdam';
+
 const savedState = loadState();
 
 let store = createStore(
@@ -59,4 +62,6 @@ store.subscribe(() => {
         isKeypressHandlerAttached = true;
     }
 });
+
+play();
 
