@@ -63,5 +63,5 @@ store.subscribe(() => {
     }
 });
 
-play();
+play(store);
 
