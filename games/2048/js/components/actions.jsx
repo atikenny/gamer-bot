@@ -1,15 +1,23 @@
 import React        from 'react';
+import { connect }  from 'react-redux';
 
 import 'game2048/styles/components/actions';
 
 import Score        from './score';
 import Restart      from './restart';
 
-const Actions = () => (
+const Actions = ({ score }) => (
     <div id="actions-container">
         <Restart />
-        <Score />
+        <Score score={score.actualScore} title="score" />
+        <Score score={score.maxScore} title="max score" />
     </div>
 );
 
-export default Actions;
+const mapState = ({ score }) => {
+    return {
+        score
+    };
+};
+
+export default connect(mapState)(Actions);

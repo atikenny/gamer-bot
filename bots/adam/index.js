@@ -48,7 +48,6 @@ const logEvent = ({ keyCode, state }) => {
 
         repeatLogItem.badMoves.push(badMoveKeyCode);
         repeatLogItem.keyCodes.push(badMoveKeyCode);
-        console.log(repeatLogItem);
     }
 
     freeMemory();
@@ -90,5 +89,5 @@ export const play = (store) => {
             });
             document.dispatchEvent(keyEvent);
         });
-    }, 0);
+    }, 100);
 };

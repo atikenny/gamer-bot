@@ -8,6 +8,7 @@
     color: $light-text-color;
     border-radius: $border-radius * 2;
     text-align: center;
+    margin-left: $gutter-size * 2;
 
     .value {
         font-size: $score-font-size;
