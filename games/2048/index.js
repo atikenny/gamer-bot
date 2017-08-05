@@ -21,7 +21,7 @@ import {
 } from './js/services/storage-service';
 
 // BOT
-import { play } from 'botAdam';
+import { play } from 'botBruce';
 
 const savedState = loadState();
 

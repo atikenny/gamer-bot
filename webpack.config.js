@@ -4,7 +4,8 @@ const paths = {
     output: path.resolve(__dirname, 'dist'),
     game2048: path.resolve(__dirname, 'games/2048'),
     bots: {
-        adam: path.resolve(__dirname, 'bots/adam')
+        adam: path.resolve(__dirname, 'bots/adam'),
+        bruce: path.resolve(__dirname, 'bots/bruce')
     }
 };
 
@@ -46,7 +47,8 @@ module.exports = {
     resolve: {
         alias: {
             game2048: paths.game2048,
-            botAdam: paths.bots.adam
+            botAdam: paths.bots.adam,
+            botBruce: paths.bots.bruce
         },
         extensions: ['.html', '.jsx', '.js', '.scss']
     },
