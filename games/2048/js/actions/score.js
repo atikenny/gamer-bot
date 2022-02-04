@@ -1,12 +1,8 @@
-export const addScore = ({ score }) => {
-    return {
-        type: 'ADD_SCORE',
-        score
-    };
-};
+export const addScore = ({ score }) => ({
+  type: 'ADD_SCORE',
+  score
+});
 
-export const resetScore = () => {
-    return {
-        type: 'RESET_SCORE'
-    };
-};
+export const resetScore = () => ({
+  type: 'RESET_SCORE'
+});

@@ -3,7 +3,9 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development webpack serve",
-    "test": "jest"
+    "test": "jest",
+    "lint": "yarn lint:scripts",
+    "lint:scripts": "eslint ."
   },
   "dependencies": {
     "core-js": "3",
@@ -16,13 +18,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
+    "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@chealt/check": "^0.8.0",
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
     "html-loader": "^3.1.0",
     "jest": "^27.4.7",
+    "prettier": "^2.5.1",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
