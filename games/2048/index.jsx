@@ -1,4 +1,4 @@
-"react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -35,7 +35,7 @@ ReactDOM.render(
       <Game />
     </GameContainer>
   </Provider>,
-  document.querySelector("#app-root")
+  document.querySelector("body")
 );
 
 const keypressHandler = getKeypressHandler(store.dispatch);

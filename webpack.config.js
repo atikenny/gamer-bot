@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./games/2048/index.jsx",
@@ -9,12 +10,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.html?$/u,
-        use: {
-          loader: "html-loader",
-        },
-      },
       {
         test: /\.jsx?$/u,
         exclude: /node_modules/u,
@@ -35,8 +30,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
   resolve: {
-    extensions: [".html", ".jsx", ".js", ".scss"],
+    extensions: [".jsx", ".js", ".scss"],
   },
   devServer: {
     compress: true,
