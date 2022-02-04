@@ -10,7 +10,7 @@ const paths = {
 };
 
 module.exports = {
-  entry: './games/2048/index.js',
+  entry: './games/2048/index.jsx',
   devtool: 'source-map',
   output: {
     path: paths.output,
