@@ -5,7 +5,7 @@
     "start": "NODE_ENV=development webpack serve",
     "test": "jest",
     "lint": "yarn lint:scripts",
-    "lint:scripts": "eslint ."
+    "lint:scripts": "eslint --ext=js,jsx ."
   },
   "dependencies": {
     "core-js": "3",

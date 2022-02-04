@@ -1,19 +1,10 @@
 const path = require('path');
 
-const paths = {
-  output: path.resolve(__dirname, 'dist'),
-  game2048: path.resolve(__dirname, 'games/2048'),
-  bots: {
-    adam: path.resolve(__dirname, 'bots/adam'),
-    bruce: path.resolve(__dirname, 'bots/bruce')
-  }
-};
-
 module.exports = {
   entry: './games/2048/index.jsx',
   devtool: 'source-map',
   output: {
-    path: paths.output,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {

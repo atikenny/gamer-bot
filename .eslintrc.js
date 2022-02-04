@@ -2,8 +2,7 @@ const { eslintConfig } = require('@chealt/check');
 
 module.exports = {
   ...eslintConfig,
-  parser: '@babel/eslint-parser',
-  extends: ['plugin:react/recommended'],
+  extends: [...eslintConfig.extends, 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
   settings: {
     'import/resolver': 'webpack',
     parserOptions: {
@@ -13,8 +12,13 @@ module.exports = {
       }
     },
     react: {
-      version: '17'
+      version: 'detect'
     }
   },
-  plugins: ['react', 'import', 'prettier']
+  plugins: [...eslintConfig.plugins, 'react'],
+  rules: {
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+  },
 };

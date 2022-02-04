@@ -1,7 +1,7 @@
 import React            from 'react';
 import { connect }      from 'react-redux';
 
-import 'game2048/styles/components/restart';
+import 'games/2048/styles/components/restart';
 
 import { resetGame }    from '../actions/board';
 

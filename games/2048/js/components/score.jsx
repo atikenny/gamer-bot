@@ -1,6 +1,6 @@
 import React        from 'react';
 
-import 'game2048/styles/components/score';
+import 'games/2048/styles/components/score';
 
 const Score = ({ score, title }) => (
     <div className="score">

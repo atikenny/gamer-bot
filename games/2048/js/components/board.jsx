@@ -1,7 +1,7 @@
 import React        from 'react';
 import { connect }  from 'react-redux';
 
-import 'game2048/styles/components/board';
+import 'games/2048/styles/components/board';
 
 import Row          from './row';
 import Column       from './column';

@@ -1,7 +1,6 @@
-import React        from 'react';
 import { connect }  from 'react-redux';
 
-import 'game2048/styles/components/tiles';
+import 'games/2048/styles/components/tiles';
 
 const gutterSize = 12;
 const cellSize = 100;

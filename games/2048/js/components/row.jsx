@@ -1,9 +1,7 @@
+'react';
 
+import '../../styles/components/row';
 
-import 'game2048/styles/components/row';
-
-const Row = ({ children }) => (
-    <div className="row-container">{children}</div>
-);
+const Row = ({ children }) => <div className="row-container">{children}</div>;
 
 export default Row;
