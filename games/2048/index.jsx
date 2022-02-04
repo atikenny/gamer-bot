@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import './styles/main';
+import './styles/main.scss';
 
 import appReducers from './js/reducers';
 
@@ -15,7 +15,7 @@ import { resetGame } from './js/actions/board';
 import { scheduleSaveState, loadState } from './js/services/storage-service';
 
 // BOT
-import { play } from 'botBruce';
+import { play } from '../../bots/bruce';
 
 const savedState = loadState();
 
@@ -35,7 +35,6 @@ ReactDOM.render(
 );
 
 const keypressHandler = getKeypressHandler(store.dispatch);
-let isKeypressHandlerAttached = true;
 
 document.addEventListener('keyup', keypressHandler);
 
@@ -46,10 +45,8 @@ store.subscribe(() => {
 
   if (!state.board.notEnded) {
     document.removeEventListener('keyup', keypressHandler);
-    isKeypressHandlerAttached = false;
   } else if (state.board.notEnded) {
     document.addEventListener('keyup', keypressHandler);
-    isKeypressHandlerAttached = true;
   }
 });
 

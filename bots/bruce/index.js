@@ -1,5 +1,5 @@
-import { delayedCallback } from 'game2048/js/services/delay-service';
-import { KeyCodes } from 'game2048/js/services/keyboard-service';
+import { delayedCallback } from '../../games/2048/js/services/delay-service';
+import { KeyCodes } from '../../games/2048/js/services/keyboard-service';
 import hash from 'object-hash';
 
 const getRandomKeyCode = (filterKeyCodes) => {
@@ -20,14 +20,20 @@ const getKeyEvent = (keyCode) =>
     code: keyCode
   });
 
-const triggerRandomKeyEvent = () => {
-  const randomKeyEvent = getRandomKeyEvent();
-
-  document.dispatchEvent(randomKeyEvent);
-};
-
 let hashLog = [];
 let log = {};
+const freeMemory = () => {
+  if (hashLog.length > 10000) {
+    hashLog = hashLog.slice(-1);
+  }
+
+  if (Object.keys(log).length > 10000) {
+    log = Object.keys(log)
+      .filter(({ badMoves }) => badMoves.length)
+      .map((key) => log[key]);
+  }
+};
+
 const logEvent = ({ keyCode, state }) => {
   const stateHash = hash(state);
   const badMove = Boolean(log[stateHash]);
@@ -48,18 +54,6 @@ const logEvent = ({ keyCode, state }) => {
   }
 
   freeMemory();
-};
-
-const freeMemory = () => {
-  if (hashLog.length > 10000) {
-    hashLog = hashLog.slice(-1);
-  }
-
-  if (Object.keys(log).length > 10000) {
-    log = Object.keys(log)
-      .filter(({ badMoves }) => badMoves.length)
-      .map((key) => log[key]);
-  }
 };
 
 const getBadMovesByState = (state) => {

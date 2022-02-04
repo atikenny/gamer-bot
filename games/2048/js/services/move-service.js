@@ -25,14 +25,14 @@ const getDistinctNumbers = (numbers) =>
     return distinctNumbers;
   }, []);
 
-const countItemOccurances = (needle, haystack) =>
-  haystack.reduce((occurances, item) => (occurances += item === needle ? 1 : 0), 0);
+const countItemOccurrences = (needle, haystack) =>
+  haystack.reduce((occurrences, item) => (occurrences += item === needle ? 1 : 0), 0); // eslint-disable-line no-param-reassign
 
 const checkHasTwoPairOfNumbers = (numbers, distinctNumbers) => {
-  const occurances = distinctNumbers.map((distinctNumber) => countItemOccurances(distinctNumber, numbers));
-  const distinctOccurances = getDistinctNumbers(occurances);
+  const occurrences = distinctNumbers.map((distinctNumber) => countItemOccurrences(distinctNumber, numbers));
+  const distinctOccurrences = getDistinctNumbers(occurrences);
 
-  return distinctOccurances.length === 1;
+  return distinctOccurrences.length === 1;
 };
 
 const checkCanAddTwice = (numbers) => {
@@ -43,15 +43,13 @@ const checkCanAddTwice = (numbers) => {
   return hasOnlyOneDistinctNumber || hasTwoPairOfNumbers;
 };
 
-const hasNoZeros = (tiles) => !tiles.some((row) => row.some((number) => number === 0));
-
 const couldMoveOtherDirection = (board, directionAlreadyTried) =>
   Object.keys(DIRECTIONS).some((directionKey) => {
     const direction = DIRECTIONS[directionKey];
     let canMove = false;
 
     if (direction !== directionAlreadyTried) {
-      const { couldMove } = move(direction, { tiles: board.tiles.slice() }, true);
+      const { couldMove } = move(direction, { tiles: board.tiles.slice() }, true); // eslint-disable-line
 
       canMove = couldMove;
     }
@@ -59,7 +57,7 @@ const couldMoveOtherDirection = (board, directionAlreadyTried) =>
     return canMove;
   });
 
-export const move = (direction, board, simulate) => {
+const move = (direction, board, simulate) => {
   let columns,
     newTiles,
     couldMove = false,
@@ -74,7 +72,6 @@ export const move = (direction, board, simulate) => {
   columns.forEach((column) => {
     let summedOnce = false;
     const alreadySummedIndexes = [];
-    const distinctNumbers = getDistinctNumbers(column);
     const canAddTwice = checkCanAddTwice(column);
 
     if (direction === DIRECTIONS.DOWN || direction === DIRECTIONS.RIGHT) {
@@ -83,6 +80,7 @@ export const move = (direction, board, simulate) => {
 
     column.forEach((number, rowIndex) => {
       if (number !== 0) {
+        // eslint-disable-next-line no-param-reassign
         while (--rowIndex >= 0) {
           const isAlreadySummedIndex = alreadySummedIndexes.indexOf(rowIndex) !== -1;
 
@@ -124,3 +122,5 @@ export const move = (direction, board, simulate) => {
     tiles: newTiles
   };
 };
+
+export { move };

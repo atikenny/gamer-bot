@@ -41,11 +41,6 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {
-      game2048: paths.game2048,
-      botAdam: paths.bots.adam,
-      botBruce: paths.bots.bruce
-    },
     extensions: ['.html', '.jsx', '.js', '.scss']
   },
   devServer: {

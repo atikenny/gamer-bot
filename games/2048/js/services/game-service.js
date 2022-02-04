@@ -1,6 +1,6 @@
 const getRandomPercent = () => Math.floor(Math.random() * 100);
 
-export const getRandomNumber = () => {
+const getRandomNumber = () => {
   const randomPercent = getRandomPercent();
 
   if (randomPercent <= 85) {
@@ -24,7 +24,7 @@ const getEmptyBoardIndexes = (board) =>
     return emptyBoardIndexes.concat(emptyCellIndexes);
   }, []);
 
-export const getRandomEmptyCell = (board) => {
+const getRandomEmptyCell = (board) => {
   const emptyBoardIndexes = getEmptyBoardIndexes(board);
   const randomIndex = Math.floor(Math.random() * emptyBoardIndexes.length);
   const randomEmptyCellIndex = emptyBoardIndexes[randomIndex];
@@ -36,3 +36,5 @@ export const getRandomEmptyCell = (board) => {
     column: randomColumn
   };
 };
+
+export { getRandomNumber, getRandomEmptyCell };

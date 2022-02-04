@@ -29,21 +29,13 @@ const addRandomNumber = (tiles) => {
 const board = (state = initialState, action) => {
   switch (action.type) {
     case 'MOVE_UP':
-      state = move('UP', state);
-
-      return state;
+      return move('UP', state);
     case 'MOVE_RIGHT':
-      state = move('RIGHT', state);
-
-      return state;
+      return move('RIGHT', state);
     case 'MOVE_DOWN':
-      state = move('DOWN', state);
-
-      return state;
+      return move('DOWN', state);
     case 'MOVE_LEFT':
-      state = move('LEFT', state);
-
-      return state;
+      return move('LEFT', state);
     case 'GET_NUMBER':
       return Object.assign({}, state, {
         tiles: addRandomNumber(state.tiles)

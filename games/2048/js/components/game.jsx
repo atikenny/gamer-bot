@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import Actions from './actions';
 import Board from './board';

@@ -1,4 +1,4 @@
-export const KeyCodes = {
+const KeyCodes = {
   ArrowUp: 'ArrowUp',
   ArrowRight: 'ArrowRight',
   ArrowDown: 'ArrowDown',
@@ -6,7 +6,7 @@ export const KeyCodes = {
   KeyR: 'KeyR'
 };
 
-export const getCodeFromKeyboardEvent = (event) => {
+const getCodeFromKeyboardEvent = (event) => {
   switch (event.code) {
     case 'ArrowUp':
       return KeyCodes.ArrowUp;
@@ -22,3 +22,5 @@ export const getCodeFromKeyboardEvent = (event) => {
       return undefined;
   }
 };
+
+export { KeyCodes, getCodeFromKeyboardEvent };

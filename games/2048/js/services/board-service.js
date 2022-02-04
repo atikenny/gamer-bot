@@ -25,5 +25,7 @@ export const getKeypressHandler = (dispatch) => (event) => {
       dispatch(resetGame());
 
       break;
+    default:
+      break;
   }
 };

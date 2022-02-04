@@ -8,13 +8,13 @@ const saveState = (state) => {
   localStorage.setItem(STORAGE_KEYS.STATE, JSON.stringify(state));
 };
 
-export const scheduleSaveState = (state) => {
+const scheduleSaveState = (state) => {
   delayedCallback(() => {
     saveState(state);
   });
 };
 
-export const loadState = () => {
+const loadState = () => {
   try {
     const savedState = JSON.parse(localStorage.getItem(STORAGE_KEYS.STATE));
 
@@ -23,3 +23,5 @@ export const loadState = () => {
     return undefined;
   }
 };
+
+export { scheduleSaveState, loadState };

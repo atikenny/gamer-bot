@@ -8,7 +8,11 @@ const moveDown = () => ({ type: 'MOVE_DOWN' });
 
 const moveLeft = () => ({ type: 'MOVE_LEFT' });
 
-export const moveAndGetNumber = (direction) => (dispatch, getState) => {
+const getNumber = () => ({
+  type: 'GET_NUMBER'
+});
+
+const moveAndGetNumber = (direction) => (dispatch, getState) => {
   switch (direction) {
     case 'UP':
       dispatch(moveUp());
@@ -26,6 +30,8 @@ export const moveAndGetNumber = (direction) => (dispatch, getState) => {
       dispatch(moveLeft());
 
       break;
+    default:
+      break;
   }
 
   window.requestAnimationFrame(() => {
@@ -41,18 +47,16 @@ export const moveAndGetNumber = (direction) => (dispatch, getState) => {
   });
 };
 
-export const getNumber = () => ({
-  type: 'GET_NUMBER'
-});
-
 const startGame = () => ({
   type: 'START_GAME'
 });
 
-export const resetGame = () => (dispatch) => {
+const resetGame = () => (dispatch) => {
   dispatch(startGame());
 
   window.requestAnimationFrame(() => {
     dispatch(resetScore());
   });
 };
+
+export { moveAndGetNumber, getNumber, resetGame };
