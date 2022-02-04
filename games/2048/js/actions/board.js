@@ -1,32 +1,32 @@
-import { addScore, resetScore } from './score';
+import { addScore, resetScore } from "./score";
 
-const moveUp = () => ({ type: 'MOVE_UP' });
+const moveUp = () => ({ type: "MOVE_UP" });
 
-const moveRight = () => ({ type: 'MOVE_RIGHT' });
+const moveRight = () => ({ type: "MOVE_RIGHT" });
 
-const moveDown = () => ({ type: 'MOVE_DOWN' });
+const moveDown = () => ({ type: "MOVE_DOWN" });
 
-const moveLeft = () => ({ type: 'MOVE_LEFT' });
+const moveLeft = () => ({ type: "MOVE_LEFT" });
 
 const getNumber = () => ({
-  type: 'GET_NUMBER'
+  type: "GET_NUMBER",
 });
 
 const moveAndGetNumber = (direction) => (dispatch, getState) => {
   switch (direction) {
-    case 'UP':
+    case "UP":
       dispatch(moveUp());
 
       break;
-    case 'RIGHT':
+    case "RIGHT":
       dispatch(moveRight());
 
       break;
-    case 'DOWN':
+    case "DOWN":
       dispatch(moveDown());
 
       break;
-    case 'LEFT':
+    case "LEFT":
       dispatch(moveLeft());
 
       break;
@@ -48,7 +48,7 @@ const moveAndGetNumber = (direction) => (dispatch, getState) => {
 };
 
 const startGame = () => ({
-  type: 'START_GAME'
+  type: "START_GAME",
 });
 
 const resetGame = () => (dispatch) => {

@@ -1,7 +1,7 @@
-import { delayedCallback } from './delay-service';
+import { delayedCallback } from "./delay-service";
 
 const STORAGE_KEYS = {
-  STATE: 'games/2048.state'
+  STATE: "games/2048.state",
 };
 
 const saveState = (state) => {

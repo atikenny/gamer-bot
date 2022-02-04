@@ -33,7 +33,7 @@ const getRandomEmptyCell = (board) => {
 
   return {
     row: randomRow,
-    column: randomColumn
+    column: randomColumn,
   };
 };
 

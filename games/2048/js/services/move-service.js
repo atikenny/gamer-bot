@@ -1,8 +1,8 @@
 const DIRECTIONS = {
-  UP: 'UP',
-  RIGHT: 'RIGHT',
-  DOWN: 'DOWN',
-  LEFT: 'LEFT'
+  UP: "UP",
+  RIGHT: "RIGHT",
+  DOWN: "DOWN",
+  LEFT: "LEFT",
 };
 
 const rotateMatrix = (matrix) =>
@@ -26,10 +26,15 @@ const getDistinctNumbers = (numbers) =>
   }, []);
 
 const countItemOccurrences = (needle, haystack) =>
-  haystack.reduce((occurrences, item) => (occurrences += item === needle ? 1 : 0), 0); // eslint-disable-line no-param-reassign
+  haystack.reduce(
+    (occurrences, item) => (occurrences += item === needle ? 1 : 0),
+    0
+  ); // eslint-disable-line no-param-reassign
 
 const checkHasTwoPairOfNumbers = (numbers, distinctNumbers) => {
-  const occurrences = distinctNumbers.map((distinctNumber) => countItemOccurrences(distinctNumber, numbers));
+  const occurrences = distinctNumbers.map((distinctNumber) =>
+    countItemOccurrences(distinctNumber, numbers)
+  );
   const distinctOccurrences = getDistinctNumbers(occurrences);
 
   return distinctOccurrences.length === 1;
@@ -38,7 +43,10 @@ const checkHasTwoPairOfNumbers = (numbers, distinctNumbers) => {
 const checkCanAddTwice = (numbers) => {
   const distinctNumbers = getDistinctNumbers(numbers);
   const hasOnlyOneDistinctNumber = distinctNumbers.length === 1;
-  const hasTwoPairOfNumbers = checkHasTwoPairOfNumbers(numbers, distinctNumbers);
+  const hasTwoPairOfNumbers = checkHasTwoPairOfNumbers(
+    numbers,
+    distinctNumbers
+  );
 
   return hasOnlyOneDistinctNumber || hasTwoPairOfNumbers;
 };
@@ -82,14 +90,19 @@ const move = (direction, board, simulate) => {
       if (number !== 0) {
         // eslint-disable-next-line no-param-reassign
         while (--rowIndex >= 0) {
-          const isAlreadySummedIndex = alreadySummedIndexes.indexOf(rowIndex) !== -1;
+          const isAlreadySummedIndex =
+            alreadySummedIndexes.indexOf(rowIndex) !== -1;
 
           if (column[rowIndex] === 0) {
             column[rowIndex] = number;
             column[rowIndex + 1] = 0;
 
             couldMove = true;
-          } else if (!isAlreadySummedIndex && column[rowIndex] === number && (!summedOnce || canAddTwice)) {
+          } else if (
+            !isAlreadySummedIndex &&
+            column[rowIndex] === number &&
+            (!summedOnce || canAddTwice)
+          ) {
             column[rowIndex] = 2 * number;
             column[rowIndex + 1] = 0;
 
@@ -118,8 +131,9 @@ const move = (direction, board, simulate) => {
   return {
     couldMove,
     summed,
-    notEnded: couldMove || (!simulate && couldMoveOtherDirection(board, direction)),
-    tiles: newTiles
+    notEnded:
+      couldMove || (!simulate && couldMoveOtherDirection(board, direction)),
+    tiles: newTiles,
   };
 };
 

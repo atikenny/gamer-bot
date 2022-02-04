@@ -1,24 +1,29 @@
-const { eslintConfig } = require('@chealt/check');
+const { eslintConfig } = require("@chealt/check");
 
 module.exports = {
   ...eslintConfig,
-  extends: [...eslintConfig.extends, 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
+  extends: [
+    ...eslintConfig.extends,
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+  ],
   settings: {
-    'import/resolver': 'webpack',
+    "import/resolver": "webpack",
     parserOptions: {
       requireConfigFile: false,
       ecmaFeatures: {
-        jsx: true
-      }
+        jsx: true,
+      },
     },
     react: {
-      version: 'detect'
-    }
+      version: "detect",
+    },
   },
-  plugins: [...eslintConfig.plugins, 'react'],
+  plugins: [...eslintConfig.plugins, "react"],
   rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-uses-react': 'off',
+    "prettier/prettier": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
   },
 };
