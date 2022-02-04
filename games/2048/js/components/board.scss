@@ -1,0 +1,17 @@
+@import "../../styles/common/colors";
+@import "../../styles/common/variables";
+
+#board-container {
+  background-color: $brand-color;
+  border-radius: $border-radius * 2;
+  padding: $gutter-size;
+
+  .board {
+    position: relative;
+  }
+
+  &.ended {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

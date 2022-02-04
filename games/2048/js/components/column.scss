@@ -1,0 +1,15 @@
+@import "../common/variables";
+
+.column-container {
+  box-sizing: border-box;
+  background-color: rgba(238, 228, 218, 0.35);
+  width: $cell-size;
+  height: $cell-size;
+  float: left;
+  border-radius: $border-radius;
+  margin-right: $gutter-size;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

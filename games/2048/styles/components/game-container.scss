@@ -1,8 +1,0 @@
-@import '../common/colors';
-@import '../common/variables';
-
-#game-container {
-    color: $brand-color;
-    margin: (2 * $gutter-size) auto;
-    width: $board-size;
-}

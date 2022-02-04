@@ -1,27 +1,27 @@
-@import './colors';
-@import './variables';
+@import "./colors";
+@import "./variables";
 
 body {
-    font-family: $font-family;
+  font-family: $font-family;
 }
 
 button {
-    border: 0;
-    background: none;
-    font: inherit;
-    cursor: pointer;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
 }
 
 .button {
-    border-radius: $border-radius;
-    border: 1px solid $brand-color;
-    color: $brand-color;
-    padding: $gutter-size;
-    transition: all .4s ease;
+  border-radius: $border-radius;
+  border: 1px solid $brand-color;
+  color: $brand-color;
+  padding: $gutter-size;
+  transition: all 0.4s ease;
 
-    &:hover {
-        background-color: $cat-color;
-        border-color: $cat-color;
-        color: $light-text-color;
-    }
+  &:hover {
+    background-color: $cat-color;
+    border-color: $cat-color;
+    color: $light-text-color;
+  }
 }

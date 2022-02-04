@@ -1,6 +1,6 @@
 "react";
 
-import "games/2048/styles/components/column";
+import "./column";
 
 const Column = () => <div className="column-container" />;
 

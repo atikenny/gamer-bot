@@ -1,6 +1,6 @@
 "react";
 
-import "../../styles/components/row";
+import "./row";
 
 const Row = ({ children }) => <div className="row-container">{children}</div>;
 
