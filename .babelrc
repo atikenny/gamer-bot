@@ -3,9 +3,12 @@
       [
         "@babel/preset-env",
         {
-          "useBuiltIns": "entry"
+          "useBuiltIns": "entry",
+          "corejs": {
+            "version": "3"
+          }
         }
       ],
-      "react"
+      "@babel/preset-react"
     ]
   }

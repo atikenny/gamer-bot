@@ -30,7 +30,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react']
+                        presets: ["@babel/preset-react"]
                     }
                 }    
             },
@@ -55,6 +55,11 @@ module.exports = {
     devServer: {
         compress: true,
         port: 9000,
-        overlay: true
+        client: {
+            overlay: {
+              errors: true,
+              warnings: true,
+            },
+          },
     }
 };

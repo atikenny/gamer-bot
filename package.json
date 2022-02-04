@@ -2,10 +2,11 @@
   "name": "gamer-bot",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve",
+    "start": "NODE_ENV=development webpack serve",
     "test": "jest"
   },
   "dependencies": {
+    "core-js": "3",
     "object-hash": "^2.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -26,6 +27,8 @@
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.68.0"
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
