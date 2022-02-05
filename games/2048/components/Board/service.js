@@ -1,5 +1,8 @@
-import { getCodeFromKeyboardEvent, KeyCodes } from "./keyboard-service";
-import { moveAndGetNumber, resetGame } from "../actions/board";
+import {
+  getCodeFromKeyboardEvent,
+  KeyCodes,
+} from "../../services/keyboard-service";
+import { moveAndGetNumber, resetGame } from "./actions";
 
 export const getKeypressHandler = (dispatch) => (event) => {
   const keyCode = getCodeFromKeyboardEvent(event);

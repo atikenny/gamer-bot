@@ -1,5 +1,5 @@
-import { delayedCallback } from "../../games/2048/js/services/delay-service";
-import { KeyCodes } from "../../games/2048/js/services/keyboard-service";
+import { delayedCallback } from "../../games/2048/services/delay-service";
+import { KeyCodes } from "../../games/2048/services/keyboard-service";
 import hash from "object-hash";
 
 const getRandomKeyCode = (filterKeyCodes) => {

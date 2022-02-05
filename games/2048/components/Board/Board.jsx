@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./board.scss";
+import "./styles";
 
-import Row from "./row";
-import Column from "./column";
-import Tiles from "./tiles";
+import Row from "../Row/Row";
+import Column from "../Column/Column";
+import Tiles from "../Tiles/Tiles";
 
 const Board = ({ notEnded }) => (
   <div id="board-container" className={notEnded ? "" : "ended"}>

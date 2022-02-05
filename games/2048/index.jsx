@@ -6,13 +6,13 @@ import thunkMiddleware from "redux-thunk";
 
 import "./index.scss";
 
-import appReducers from "./js/reducers";
+import appReducers from "./reducers";
 
-import GameContainer from "./js/components/game-container";
-import Game from "./js/components/game";
-import { getKeypressHandler } from "./js/services/board-service";
-import { resetGame } from "./js/actions/board";
-import { scheduleSaveState, loadState } from "./js/services/storage-service";
+import GameContainer from "./components/GameContainer/GameContainer";
+import Game from "./components/Game/Game";
+import { getKeypressHandler } from "./components/Board/service";
+import { resetGame } from "./components/Board/actions";
+import { scheduleSaveState, loadState } from "./services/storage-service";
 
 // BOT
 import { play } from "../../bots/bruce";

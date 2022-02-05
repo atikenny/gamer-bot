@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./tiles";
+import "./styles";
 
 const gutterSize = 12;
 const cellSize = 100;
@@ -29,7 +29,11 @@ const Tiles = ({ tiles }) => (
 
         if (number) {
           return (
-            <span className={tileClassName} style={style}>
+            <span
+              key={`tile-${rowIndex}-${columnIndex}`}
+              className={tileClassName}
+              style={style}
+            >
               {number}
             </span>
           );

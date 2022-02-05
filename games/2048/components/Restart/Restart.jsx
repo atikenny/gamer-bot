@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./restart";
+import "./styles";
 
-import { resetGame } from "../actions/board";
+import { resetGame } from "../Board/actions";
 
 const Restart = ({ resetGame }) => (
   <button className="button restart-button" onClick={resetGame}>

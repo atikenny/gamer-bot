@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./actions";
+import "./styles";
 
-import Score from "./score";
-import Restart from "./restart";
+import Score from "../Score/Score";
+import Restart from "../Restart/Restart";
 
 const Actions = ({ score }) => (
   <div id="actions-container">

@@ -1,4 +1,4 @@
-import { addScore, resetScore } from "./score";
+import { addScore, resetScore } from "../Score/actions";
 
 const moveUp = () => ({ type: "MOVE_UP" });
 
