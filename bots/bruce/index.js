@@ -83,4 +83,7 @@ const play = (store) => {
   }, 500);
 };
 
-export default play;
+export default {
+  name: "Bruce",
+  play,
+};

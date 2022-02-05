@@ -15,7 +15,7 @@ import { resetGame } from "./components/Board/actions";
 import { scheduleSaveState, loadState } from "./services/storage-service";
 
 // BOT
-import play from "../../bots/bruce";
+import Bruce from "../../bots/bruce";
 
 const savedState = loadState();
 
@@ -54,4 +54,4 @@ store.subscribe(() => {
   }
 });
 
-play(store);
+Bruce.play(store);

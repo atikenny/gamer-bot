@@ -4,11 +4,12 @@ import { connect } from "react-redux";
 import "./styles";
 
 import { resetGame } from "../Board/actions";
+import Button from "../Button/Button";
 
 const Restart = ({ resetGame }) => (
-  <button className="button restart-button" onClick={resetGame}>
+  <Button className="restart-button" onClick={resetGame}>
     restart
-  </button>
+  </Button>
 );
 
 const mapDispatch = (dispatch) => {

@@ -1,5 +1,5 @@
-import { delayedCallback } from "../../games/2048/js/services/delay-service";
-import { KeyCodes } from "../../games/2048/js/services/keyboard-service";
+import { delayedCallback } from "../../games/2048/services/delay-service";
+import { KeyCodes } from "../../games/2048/services/keyboard-service";
 import hash from "object-hash";
 
 const getRandomKeyCode = (filterKeyCodes) => {
@@ -63,7 +63,7 @@ const getBadMovesByState = (state) => {
   return logEntry && logEntry.badMoves;
 };
 
-export const play = (store) => {
+const play = (store) => {
   let keyEvent, keyCode;
 
   setInterval(() => {
@@ -81,4 +81,9 @@ export const play = (store) => {
       document.dispatchEvent(keyEvent);
     });
   }, 100);
+};
+
+export default {
+  name: "Adam",
+  play,
 };
