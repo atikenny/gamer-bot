@@ -1,7 +1,4 @@
-import {
-  getRandomNumber,
-  getRandomEmptyCell,
-} from "../../services/game-service";
+import { getRandomNumber, getRandomEmptyCell } from "../Game/service";
 import { move } from "../../services/move-service";
 
 const getEmptyTiles = () => [
