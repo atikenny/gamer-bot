@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./styles";
 
@@ -7,42 +7,40 @@ import Row from "../Row/Row";
 import Column from "../Column/Column";
 import Tiles from "../Tiles/Tiles";
 
-const Board = ({ notEnded }) => (
-  <div id="board-container" className={notEnded ? "" : "ended"}>
-    <div className="board">
-      <Tiles />
-      <Row>
-        <Column />
-        <Column />
-        <Column />
-        <Column />
-      </Row>
-      <Row>
-        <Column />
-        <Column />
-        <Column />
-        <Column />
-      </Row>
-      <Row>
-        <Column />
-        <Column />
-        <Column />
-        <Column />
-      </Row>
-      <Row>
-        <Column />
-        <Column />
-        <Column />
-        <Column />
-      </Row>
-    </div>
-  </div>
-);
+const Board = () => {
+  const notEnded = useSelector((state) => state.board.notEnded);
 
-const mapState = ({ board }) => {
-  return {
-    notEnded: board.notEnded,
-  };
+  return (
+    <div id="board-container" className={notEnded ? "" : "ended"}>
+      <div className="board">
+        <Tiles />
+        <Row>
+          <Column />
+          <Column />
+          <Column />
+          <Column />
+        </Row>
+        <Row>
+          <Column />
+          <Column />
+          <Column />
+          <Column />
+        </Row>
+        <Row>
+          <Column />
+          <Column />
+          <Column />
+          <Column />
+        </Row>
+        <Row>
+          <Column />
+          <Column />
+          <Column />
+          <Column />
+        </Row>
+      </div>
+    </div>
+  );
 };
 
-export default connect(mapState)(Board);
+export default Board;

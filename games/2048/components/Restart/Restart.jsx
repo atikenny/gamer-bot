@@ -1,23 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./styles";
 
-import { resetGame } from "../Board/actions";
+import { resetGame as resetGameAction } from "../Board/actions";
 import Button from "../Button/Button";
 
-const Restart = ({ resetGame }) => (
-  <Button className="restart-button" onClick={resetGame}>
-    restart
-  </Button>
-);
-
-const mapDispatch = (dispatch) => {
-  return {
-    resetGame: () => {
-      dispatch(resetGame());
-    },
+const Restart = () => {
+  const dispatch = useDispatch();
+  const resetGame = () => {
+    dispatch(resetGameAction());
   };
+
+  return (
+    <Button className="restart-button" onClick={resetGame}>
+      restart
+    </Button>
+  );
 };
 
-export default connect(null, mapDispatch)(Restart);
+export default Restart;

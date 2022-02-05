@@ -1,7 +1,7 @@
 @import "../App/styles/colors";
 @import "../App/styles/variables";
 
-#tiles {
+.tiles {
   .tile {
     position: absolute;
     font-size: $tile-font-size;

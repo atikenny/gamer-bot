@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import classnames from "classnames";
 
 import "./styles";
 
@@ -14,41 +15,31 @@ const getTransform = (rowIndex, columnIndex) => {
   };
 };
 
-const Tiles = ({ tiles }) => (
-  <div id="tiles">
-    {tiles.map((row, rowIndex) =>
-      row.map((number, columnIndex) => {
-        let tileClassName = `tile`;
-        const style = getTransform(rowIndex, columnIndex);
+const Tiles = () => {
+  const tiles = useSelector((state) => state.board.tiles);
 
-        if (number > 2048) {
-          tileClassName += " tile-super";
-        } else {
-          tileClassName += ` tile-${number}`;
-        }
-
-        if (number) {
-          return (
-            <span
-              key={`tile-${rowIndex}-${columnIndex}`}
-              className={tileClassName}
-              style={style}
-            >
-              {number}
-            </span>
-          );
-        } else {
-          return null;
-        }
-      })
-    )}
-  </div>
-);
-
-const mapState = ({ board }) => {
-  return {
-    tiles: board.tiles,
-  };
+  return (
+    <div className="tiles">
+      {tiles.map((row, rowIndex) =>
+        row.map(
+          (number, columnIndex) =>
+            (number && (
+              <span
+                key={`tile-${rowIndex}-${columnIndex}`}
+                className={classnames("tile", {
+                  "tile-super": number > 2048,
+                  [`tile-${number}`]: number <= 2048,
+                })}
+                style={getTransform(rowIndex, columnIndex)}
+              >
+                {number}
+              </span>
+            )) ||
+            null
+        )
+      )}
+    </div>
+  );
 };
 
-export default connect(mapState)(Tiles);
+export default Tiles;

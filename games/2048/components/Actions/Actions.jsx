@@ -1,23 +1,21 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./styles";
 
 import Score from "../Score/Score";
 import Restart from "../Restart/Restart";
 
-const Actions = ({ score }) => (
-  <div className="actions-container">
-    <Restart />
-    <Score score={score.actualScore} title="score" />
-    <Score score={score.maxScore} title="max score" />
-  </div>
-);
+const Actions = () => {
+  const score = useSelector((state) => state.score);
 
-const mapState = ({ score }) => {
-  return {
-    score,
-  };
+  return (
+    <div className="actions-container">
+      <Restart />
+      <Score score={score.actualScore} title="score" />
+      <Score score={score.maxScore} title="max score" />
+    </div>
+  );
 };
 
-export default connect(mapState)(Actions);
+export default Actions;
