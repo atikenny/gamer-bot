@@ -7,7 +7,7 @@ import Score from "../Score/Score";
 import Restart from "../Restart/Restart";
 
 const Actions = ({ score }) => (
-  <div id="actions-container">
+  <div className="actions-container">
     <Restart />
     <Score score={score.actualScore} title="score" />
     <Score score={score.maxScore} title="max score" />

@@ -1,7 +1,11 @@
 @import "../App/styles/colors";
 @import "../App/styles/variables";
 
-#actions-container {
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: $gutter-size;
   margin-bottom: $gutter-size * 2;
-  text-align: right;
 }

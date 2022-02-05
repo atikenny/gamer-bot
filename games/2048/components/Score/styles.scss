@@ -3,12 +3,10 @@
 
 .score {
   padding: $gutter-size;
-  display: inline-block;
   background-color: $brand-color;
   color: $light-text-color;
   border-radius: $border-radius * 2;
   text-align: center;
-  margin-left: $gutter-size * 2;
 
   .value {
     font-size: $score-font-size;
