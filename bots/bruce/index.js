@@ -63,7 +63,7 @@ const getBadMovesByState = (state) => {
   return logEntry && logEntry.badMoves;
 };
 
-export const play = (store) => {
+const play = (store) => {
   let keyEvent, keyCode;
 
   setInterval(() => {
@@ -82,3 +82,5 @@ export const play = (store) => {
     });
   }, 500);
 };
+
+export default play;

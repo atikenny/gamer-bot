@@ -38,6 +38,7 @@ const moveAndGetNumber = (direction) => (dispatch, getState) => {
     const { board } = getState();
 
     if (board.couldMove) {
+      console.log(`Move(${direction})`);
       dispatch(getNumber());
     }
 
@@ -52,6 +53,7 @@ const startGame = () => ({
 });
 
 const resetGame = () => (dispatch) => {
+  console.log(`Reset()`);
   dispatch(startGame());
 
   window.requestAnimationFrame(() => {
