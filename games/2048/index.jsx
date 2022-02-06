@@ -48,4 +48,5 @@ store.subscribe(() => {
   }
 });
 
-store.dispatch(play(store.getState().settings.moveIntervalMS));
+const state = store.getState();
+store.dispatch(play(state.board.tiles, state.settings.moveIntervalMS));

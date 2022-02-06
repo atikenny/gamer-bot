@@ -71,6 +71,7 @@ const play = (state, moveIntervalMS) => {
   interval = setInterval(() => {
     cancelMove = delayedCallback(() => {
       const badMoveKeyCodes = getBadMovesByState(state) || [];
+      console.log({ badMoveKeyCodes }); // eslint-disable-line no-console
 
       keyCode = getRandomKeyCode(badMoveKeyCodes);
       keyEvent = getKeyEvent(keyCode);

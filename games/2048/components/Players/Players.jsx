@@ -9,12 +9,13 @@ import './styles';
 const Players = () => {
   const players = useSelector((state) => state.players);
   const moveIntervalMS = useSelector((state) => state.settings.moveIntervalMS);
+  const tiles = useSelector((state) => state.board.tiles);
   const dispatch = useDispatch();
   const selectPlayer = (name) => () => {
     dispatch(stop());
     dispatch(selectPlayerAction(name));
     dispatch(resetGame());
-    dispatch(play(moveIntervalMS));
+    dispatch(play(tiles, moveIntervalMS));
   };
 
   return (

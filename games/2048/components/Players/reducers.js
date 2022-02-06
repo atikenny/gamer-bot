@@ -25,7 +25,7 @@ const reducers = (state = initialState, action) => {
       const selectedBot = bots.find((bot) => bot.name === selectedPlayer.name);
 
       if (selectedBot) {
-        selectedBot.play(state, action.moveIntervalMS);
+        selectedBot.play(action.state, action.moveIntervalMS);
       }
 
       return state;
