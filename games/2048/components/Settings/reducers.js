@@ -1,5 +1,5 @@
 const initialState = {
-  moveIntervalMS: 1000
+  moveIntervalMS: 500
 };
 
 const reducers = (state = initialState, action) => {

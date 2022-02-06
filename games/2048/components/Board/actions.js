@@ -38,7 +38,6 @@ const moveAndGetNumber = (direction) => (dispatch, getState) => {
     const { board } = getState();
 
     if (board.couldMove) {
-      console.log(`Move(${direction})`); // eslint-disable-line no-console
       dispatch(getNumber());
     }
 
@@ -53,7 +52,6 @@ const startGame = () => ({
 });
 
 const resetGame = () => (dispatch) => {
-  console.log('Reset()'); // eslint-disable-line no-console
   dispatch(startGame());
 
   window.requestAnimationFrame(() => {
