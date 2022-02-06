@@ -1,6 +1,4 @@
-import React from "react";
-
-import "./styles";
+import './styles';
 
 const Score = ({ score, title }) => (
   <div className="score">

@@ -1,15 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import "./styles";
+import './styles';
 
-import Score from "../Score/Score";
-import Restart from "../Restart/Restart";
+import Score from '../Score/Score';
+import Restart from '../Restart/Restart';
 
 const Actions = () => {
-  const score = useSelector(
-    (state) => state.players.find((player) => player.isSelected).score
-  );
+  const score = useSelector((state) => state.players.find((player) => player.isSelected).score);
 
   return (
     <div className="actions-container">

@@ -1,9 +1,5 @@
-import React from "react";
+import './styles';
 
-import "./styles";
-
-const GameContainer = ({ children }) => (
-  <div className="game-container">{children}</div>
-);
+const GameContainer = ({ children }) => <div className="game-container">{children}</div>;
 
 export default GameContainer;

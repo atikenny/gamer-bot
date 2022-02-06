@@ -1,10 +1,9 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import "./styles";
+import './styles';
 
-import { resetGame as resetGameAction } from "../Board/actions";
-import Button from "../Button/Button";
+import { resetGame as resetGameAction } from '../Board/actions';
+import Button from '../Button/Button';
 
 const Restart = () => {
   const dispatch = useDispatch();

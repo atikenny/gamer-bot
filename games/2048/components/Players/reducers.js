@@ -1,27 +1,25 @@
-import { combineReducers } from "redux";
-
-import bots from "../../../../bots";
-import scoreReducers from "../Score/reducers";
+import bots from '../../../../bots';
+import scoreReducers from '../Score/reducers';
 
 const initialState = [
   ...bots.map(({ name }) => ({
     name,
-    isSelected: name === "Bruce", // select Bruce by default
+    isSelected: name === 'Bruce' // select Bruce by default
   })),
   {
-    name: "You",
-  },
+    name: 'You'
+  }
 ];
 
 const reducers = (state = initialState, action) => {
   switch (action.type) {
-    case "PLAYERS.CHOOSE":
+    case 'PLAYERS.CHOOSE':
       return state.map((player) => ({
         ...player,
         isSelected: player.name === action.name,
-        score: scoreReducers(player.score, action),
+        score: scoreReducers(player.score, action)
       }));
-    case "PLAYERS.PLAY":
+    case 'PLAYERS.PLAY':
       const selectedBot = bots.find((bot) => bot.name === action.name);
 
       if (selectedBot) {
@@ -32,7 +30,7 @@ const reducers = (state = initialState, action) => {
     default:
       return state.map((player) => ({
         ...player,
-        score: scoreReducers(player.score, action),
+        score: scoreReducers(player.score, action)
       }));
   }
 };

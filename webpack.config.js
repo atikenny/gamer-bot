@@ -1,12 +1,12 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./games/2048/index.jsx",
-  devtool: "source-map",
+  entry: './games/2048/index.jsx',
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -14,25 +14,18 @@ module.exports = {
         test: /\.jsx?$/u,
         exclude: /node_modules/u,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react"],
-          },
-        },
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.scss?$/u,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "sass-loader" },
-        ],
-      },
-    ],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
+      }
+    ]
   },
   plugins: [new HtmlWebpackPlugin()],
   resolve: {
-    extensions: [".jsx", ".js", ".scss"],
+    extensions: ['.jsx', '.js', '.scss']
   },
   devServer: {
     compress: true,
@@ -40,8 +33,8 @@ module.exports = {
     client: {
       overlay: {
         errors: true,
-        warnings: true,
-      },
-    },
-  },
+        warnings: true
+      }
+    }
+  }
 };

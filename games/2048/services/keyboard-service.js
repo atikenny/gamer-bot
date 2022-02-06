@@ -1,22 +1,22 @@
 const KeyCodes = {
-  ArrowUp: "ArrowUp",
-  ArrowRight: "ArrowRight",
-  ArrowDown: "ArrowDown",
-  ArrowLeft: "ArrowLeft",
-  KeyR: "KeyR",
+  ArrowUp: 'ArrowUp',
+  ArrowRight: 'ArrowRight',
+  ArrowDown: 'ArrowDown',
+  ArrowLeft: 'ArrowLeft',
+  KeyR: 'KeyR'
 };
 
 const getCodeFromKeyboardEvent = (event) => {
   switch (event.code) {
-    case "ArrowUp":
+    case 'ArrowUp':
       return KeyCodes.ArrowUp;
-    case "ArrowRight":
+    case 'ArrowRight':
       return KeyCodes.ArrowRight;
-    case "ArrowDown":
+    case 'ArrowDown':
       return KeyCodes.ArrowDown;
-    case "ArrowLeft":
+    case 'ArrowLeft':
       return KeyCodes.ArrowLeft;
-    case "KeyR":
+    case 'KeyR':
       return KeyCodes.KeyR;
     default:
       return undefined;

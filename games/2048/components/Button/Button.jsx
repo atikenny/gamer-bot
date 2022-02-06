@@ -1,12 +1,11 @@
-import React from "react";
-import classnames from "classnames";
+import classnames from 'classnames';
 
-import "./styles";
+import './styles';
 
 const Button = ({ children, className, isActive, ...rest }) => (
   <button
-    className={classnames("button", className, {
-      active: isActive,
+    className={classnames('button', className, {
+      active: isActive
     })}
     {...rest}
   >

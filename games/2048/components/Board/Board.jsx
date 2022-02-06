@@ -1,20 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import classnames from "classnames";
+import { useSelector } from 'react-redux';
+import classnames from 'classnames';
 
-import "./styles";
+import './styles';
 
-import Row from "../Row/Row";
-import Column from "../Column/Column";
-import Tiles from "../Tiles/Tiles";
+import Row from '../Row/Row';
+import Column from '../Column/Column';
+import Tiles from '../Tiles/Tiles';
 
 const Board = () => {
   const notEnded = useSelector((state) => state.board.notEnded);
 
   return (
     <div
-      className={classnames("board-container", {
-        ended: !notEnded,
+      className={classnames('board-container', {
+        ended: !notEnded
       })}
     >
       <div className="board">

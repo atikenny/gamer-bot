@@ -1,5 +1,5 @@
-import adam from "./adam";
-import bruce from "./bruce";
+import adam from './adam';
+import bruce from './bruce';
 
 const bots = [adam, bruce];
 

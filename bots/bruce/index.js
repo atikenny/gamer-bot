@@ -1,6 +1,6 @@
-import { delayedCallback } from "../../games/2048/services/delay-service";
-import { KeyCodes } from "../../games/2048/services/keyboard-service";
-import hash from "object-hash";
+import { delayedCallback } from '../../games/2048/services/delay-service';
+import { KeyCodes } from '../../games/2048/services/keyboard-service';
+import hash from 'object-hash';
 
 const getRandomKeyCode = (filterKeyCodes) => {
   const keys = Object.keys(KeyCodes);
@@ -16,8 +16,8 @@ const getRandomKeyCode = (filterKeyCodes) => {
 };
 
 const getKeyEvent = (keyCode) =>
-  new KeyboardEvent("keyup", {
-    code: keyCode,
+  new KeyboardEvent('keyup', {
+    code: keyCode
   });
 
 let hashLog = [];
@@ -41,7 +41,7 @@ const logEvent = ({ keyCode, state }) => {
   if (!badMove) {
     log[stateHash] = {
       keyCodes: [keyCode],
-      badMoves: [],
+      badMoves: []
     };
     hashLog.push(stateHash);
   } else {
@@ -75,7 +75,7 @@ const play = (state) => {
 
       logEvent({
         keyCode,
-        state,
+        state
       });
       document.dispatchEvent(keyEvent);
     });
@@ -83,6 +83,6 @@ const play = (state) => {
 };
 
 export default {
-  name: "Bruce",
-  play,
+  name: 'Bruce',
+  play
 };

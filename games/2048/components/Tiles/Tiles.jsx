@@ -1,8 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import classnames from "classnames";
+import { useSelector } from 'react-redux';
+import classnames from 'classnames';
 
-import "./styles";
+import './styles';
 
 const gutterSize = 12;
 const cellSize = 100;
@@ -11,7 +10,7 @@ const getTransform = (rowIndex, columnIndex) => {
   const y = rowIndex * cellSize + rowIndex * gutterSize;
 
   return {
-    transform: `translate(${x}px, ${y}px)`,
+    transform: `translate(${x}px, ${y}px)`
   };
 };
 
@@ -26,9 +25,9 @@ const Tiles = () => {
             (number && (
               <span
                 key={`tile-${rowIndex}-${columnIndex}`}
-                className={classnames("tile", {
-                  "tile-super": number > 2048,
-                  [`tile-${number}`]: number <= 2048,
+                className={classnames('tile', {
+                  'tile-super': number > 2048,
+                  [`tile-${number}`]: number <= 2048
                 })}
                 style={getTransform(rowIndex, columnIndex)}
               >

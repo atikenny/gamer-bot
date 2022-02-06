@@ -1,6 +1,4 @@
-import React from "react";
-
-import "./styles";
+import './styles';
 
 const Column = () => <div className="column-container" />;
 
