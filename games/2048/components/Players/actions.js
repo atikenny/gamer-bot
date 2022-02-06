@@ -8,4 +8,8 @@ const play = (name) => ({
   name
 });
 
-export { selectPlayer, play };
+const stop = () => ({
+  type: 'PLAYERS.STOP'
+});
+
+export { selectPlayer, play, stop };

@@ -27,6 +27,15 @@ const reducers = (state = initialState, action) => {
       }
 
       return state;
+    case 'PLAYERS.STOP':
+      const selectedPlayer = state.find(({ isSelected }) => isSelected);
+      const stop = bots.find((bot) => bot.name === selectedPlayer.name)?.stop;
+
+      if (stop) {
+        stop();
+      }
+
+      return state;
     default:
       return state.map((player) => ({
         ...player,

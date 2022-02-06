@@ -63,11 +63,13 @@ const getBadMovesByState = (state) => {
   return logEntry && logEntry.badMoves;
 };
 
+let interval;
+let cancelMove;
 const play = (state) => {
   let keyEvent, keyCode;
 
-  setInterval(() => {
-    delayedCallback(() => {
+  interval = setInterval(() => {
+    cancelMove = delayedCallback(() => {
       const badMoveKeyCodes = getBadMovesByState(state) || [];
 
       keyCode = getRandomKeyCode(badMoveKeyCodes);
@@ -82,7 +84,16 @@ const play = (state) => {
   }, 500);
 };
 
+const stop = () => {
+  if (cancelMove) {
+    cancelMove();
+  }
+
+  clearInterval(interval);
+};
+
 export default {
   name: 'Bruce',
-  play
+  play,
+  stop
 };

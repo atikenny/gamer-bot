@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../Button/Button';
-import { selectPlayer as selectPlayerAction, play } from './actions';
+import { selectPlayer as selectPlayerAction, play, stop } from './actions';
 import { resetGame } from '../Board/actions';
 
 import './styles';
@@ -10,6 +10,7 @@ const Players = () => {
   const players = useSelector((state) => state.players);
   const dispatch = useDispatch();
   const selectPlayer = (name) => () => {
+    dispatch(stop());
     dispatch(selectPlayerAction(name));
     dispatch(resetGame());
     dispatch(play(name));
