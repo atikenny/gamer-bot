@@ -7,7 +7,9 @@ import Score from "../Score/Score";
 import Restart from "../Restart/Restart";
 
 const Actions = () => {
-  const score = useSelector((state) => state.score);
+  const score = useSelector(
+    (state) => state.players.find((player) => player.isSelected).score
+  );
 
   return (
     <div className="actions-container">

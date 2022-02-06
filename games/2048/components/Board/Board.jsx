@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import classnames from "classnames";
 
 import "./styles";
 
@@ -11,7 +12,11 @@ const Board = () => {
   const notEnded = useSelector((state) => state.board.notEnded);
 
   return (
-    <div id="board-container" className={notEnded ? "" : "ended"}>
+    <div
+      className={classnames("board-container", {
+        ended: !notEnded,
+      })}
+    >
       <div className="board">
         <Tiles />
         <Row>

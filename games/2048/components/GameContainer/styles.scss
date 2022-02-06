@@ -1,8 +1,10 @@
 @import "../App/styles/colors";
 @import "../App/styles/variables";
 
-#game-container {
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
   color: $brand-color;
-  margin: (2 * $gutter-size) auto;
-  width: $board-size;
 }

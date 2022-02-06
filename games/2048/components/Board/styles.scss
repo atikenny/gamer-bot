@@ -1,7 +1,7 @@
 @import "../App/styles/colors";
 @import "../App/styles/variables";
 
-#board-container {
+.board-container {
   background-color: $brand-color;
   border-radius: $border-radius * 2;
   padding: $gutter-size;

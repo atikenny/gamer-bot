@@ -1,13 +1,11 @@
 import { combineReducers } from "redux";
 
-import score from "./components/Score/reducers";
 import board from "./components/Board/reducers";
-import bots from "./components/Bots/reducers";
+import players from "./components/Players/reducers";
 
 const appReducers = combineReducers({
-  score,
   board,
-  bots,
+  players,
 });
 
 export default appReducers;

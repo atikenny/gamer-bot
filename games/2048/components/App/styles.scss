@@ -1,2 +1,12 @@
 @import "./styles/reset";
 @import "./styles/elements";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}

@@ -63,12 +63,11 @@ const getBadMovesByState = (state) => {
   return logEntry && logEntry.badMoves;
 };
 
-const play = (store) => {
+const play = (state) => {
   let keyEvent, keyCode;
 
   setInterval(() => {
     delayedCallback(() => {
-      const state = store.getState();
       const badMoveKeyCodes = getBadMovesByState(state) || [];
 
       keyCode = getRandomKeyCode(badMoveKeyCodes);

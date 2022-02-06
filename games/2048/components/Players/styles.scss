@@ -1,8 +1,9 @@
 @import "../App/styles/variables";
 
-.bots {
+.players {
   display: flex;
   flex-direction: row;
   gap: $gutter-size;
   margin: $gutter-size 0;
+  justify-content: flex-end;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
+import thunk from "redux-thunk";
 
 import "./index.scss";
 
@@ -14,16 +14,9 @@ import { getKeypressHandler } from "./components/Board/service";
 import { resetGame } from "./components/Board/actions";
 import { scheduleSaveState, loadState } from "./services/storage-service";
 
-// BOT
-import Bruce from "../../bots/bruce";
-
 const savedState = loadState();
 
-const store = createStore(
-  appReducers,
-  savedState,
-  applyMiddleware(thunkMiddleware)
-);
+const store = createStore(appReducers, savedState, applyMiddleware(thunk));
 
 if (!savedState) {
   store.dispatch(resetGame());
@@ -53,5 +46,3 @@ store.subscribe(() => {
     document.addEventListener("keyup", keypressHandler);
   }
 });
-
-Bruce.play(store);
