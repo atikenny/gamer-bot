@@ -13,6 +13,7 @@ import Game from './components/Game/Game';
 import { getKeypressHandler } from './components/Board/service';
 import { resetGame } from './components/Board/actions';
 import { scheduleSaveState, loadState } from './services/storage-service';
+import { play } from './components/Players/actions';
 
 const savedState = loadState();
 
@@ -46,3 +47,5 @@ store.subscribe(() => {
     document.addEventListener('keyup', keypressHandler);
   }
 });
+
+store.dispatch(play(store.getState().settings.moveIntervalMS));

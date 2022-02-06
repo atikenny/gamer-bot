@@ -3,9 +3,8 @@ const selectPlayer = (name) => ({
   name
 });
 
-const play = (name, moveIntervalMS) => ({
+const play = (moveIntervalMS) => ({
   type: 'PLAYERS.PLAY',
-  name,
   moveIntervalMS
 });
 

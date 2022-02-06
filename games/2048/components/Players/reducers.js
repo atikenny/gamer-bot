@@ -12,6 +12,8 @@ const initialState = [
 ];
 
 const reducers = (state = initialState, action) => {
+  const selectedPlayer = state.find(({ isSelected }) => isSelected);
+
   switch (action.type) {
     case 'PLAYERS.CHOOSE':
       return state.map((player) => ({
@@ -20,7 +22,7 @@ const reducers = (state = initialState, action) => {
         score: scoreReducers(player.score, action)
       }));
     case 'PLAYERS.PLAY':
-      const selectedBot = bots.find((bot) => bot.name === action.name);
+      const selectedBot = bots.find((bot) => bot.name === selectedPlayer.name);
 
       if (selectedBot) {
         selectedBot.play(state, action.moveIntervalMS);
@@ -28,7 +30,6 @@ const reducers = (state = initialState, action) => {
 
       return state;
     case 'PLAYERS.STOP':
-      const selectedPlayer = state.find(({ isSelected }) => isSelected);
       const stop = bots.find((bot) => bot.name === selectedPlayer.name)?.stop;
 
       if (stop) {

@@ -14,7 +14,7 @@ const Players = () => {
     dispatch(stop());
     dispatch(selectPlayerAction(name));
     dispatch(resetGame());
-    dispatch(play(name, moveIntervalMS));
+    dispatch(play(moveIntervalMS));
   };
 
   return (
