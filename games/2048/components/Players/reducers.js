@@ -23,7 +23,7 @@ const reducers = (state = initialState, action) => {
       const selectedBot = bots.find((bot) => bot.name === action.name);
 
       if (selectedBot) {
-        selectedBot.play(state);
+        selectedBot.play(state, action.moveIntervalMS);
       }
 
       return state;
@@ -39,7 +39,7 @@ const reducers = (state = initialState, action) => {
     default:
       return state.map((player) => ({
         ...player,
-        score: scoreReducers(player.score, action)
+        score: player.isSelected ? scoreReducers(player.score, action) : player.score
       }));
   }
 };

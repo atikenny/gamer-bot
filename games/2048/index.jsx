@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 import './index.scss';
 
@@ -15,7 +16,7 @@ import { scheduleSaveState, loadState } from './services/storage-service';
 
 const savedState = loadState();
 
-const store = createStore(appReducers, savedState, applyMiddleware(thunk));
+const store = createStore(appReducers, savedState, composeWithDevTools(applyMiddleware(thunk)));
 
 if (!savedState) {
   store.dispatch(resetGame());

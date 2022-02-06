@@ -8,12 +8,13 @@ import './styles';
 
 const Players = () => {
   const players = useSelector((state) => state.players);
+  const moveIntervalMS = useSelector((state) => state.settings.moveIntervalMS);
   const dispatch = useDispatch();
   const selectPlayer = (name) => () => {
     dispatch(stop());
     dispatch(selectPlayerAction(name));
     dispatch(resetGame());
-    dispatch(play(name));
+    dispatch(play(name, moveIntervalMS));
   };
 
   return (

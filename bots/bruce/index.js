@@ -65,7 +65,7 @@ const getBadMovesByState = (state) => {
 
 let interval;
 let cancelMove;
-const play = (state) => {
+const play = (state, moveIntervalMS) => {
   let keyEvent, keyCode;
 
   interval = setInterval(() => {
@@ -81,7 +81,7 @@ const play = (state) => {
       });
       document.dispatchEvent(keyEvent);
     });
-  }, 500);
+  }, moveIntervalMS);
 };
 
 const stop = () => {
