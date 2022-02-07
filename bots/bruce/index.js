@@ -60,7 +60,7 @@ const getBadMovesByState = (state) => {
   const stateHash = hash(state);
   const logEntry = log[stateHash];
 
-  return logEntry && logEntry.badMoves;
+  return logEntry?.badMoves;
 };
 
 let interval;
